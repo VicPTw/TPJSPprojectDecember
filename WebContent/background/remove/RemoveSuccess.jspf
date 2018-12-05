@@ -1,0 +1,5 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="Partnercontent">
+<h2>資料刪除成功。</h2>
+</div>

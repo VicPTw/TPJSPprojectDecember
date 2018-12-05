@@ -1,0 +1,48 @@
+@charset "UTF-8";
+h4 {
+	color: rgb(0,112,192);
+	font-size: 18px;
+	margin-bottom: 12px;
+}
+p {
+	line-height: 18px;
+}
+.container {
+}
+.content {
+}
+.partners {
+	padding: 5%;
+	background-color: var(--bgc1);
+	text-align: justify;
+	position: relative;
+	
+}
+
+.partners .partner {
+	padding: 5% 5% 0 5%;
+	width: 90%;
+}
+
+.partners img {
+	width: 200px;
+	height: 200px;
+}
+
+.partners .pic {
+	float: left;
+	margin-right: 18px;
+}
+
+.partners .text {
+}
+
+.partner a {
+	text-decoration: none;
+	color: rgb(0,112,192);
+	
+}
+
+.partner a:hover {
+	color: black;
+}

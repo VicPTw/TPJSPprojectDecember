@@ -1,0 +1,7 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="indexcontent">
+<h3>此頁面為後台管理系統，點選新增、編輯、刪除即可開始使用該項功能。</h3>
+<h3>注意在新增圖片時都有固定的規格，上傳前請再次注意。</h3>
+<h3>刪除資料時請多注意，刪除功能時會使用到的密碼為管理員登入時使用的密碼。</h3>
+</div>
