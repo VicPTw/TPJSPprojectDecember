@@ -6,9 +6,13 @@
 (--)controller
 
 TODO list:
+
 1.controller
+
 2.Make background hide
 
 
+
 *You must verify your database access first.
+
 (user, password, DBdriver)
