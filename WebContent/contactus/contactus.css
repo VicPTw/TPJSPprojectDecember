@@ -1,0 +1,17 @@
+.sendmail a{
+            display: block;
+            text-decoration: none;
+            width: 140px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border:0 none;
+            border-radius: 5px;
+            color:black;
+            background-color: burlywood;
+            margin:0 auto;
+}
+h1{
+ padding:25px;   
+    
+}
