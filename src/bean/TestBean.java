@@ -27,7 +27,7 @@ public class TestBean {
 		mainPage.setMainTitle("TestMainTitle");
 		mainPage.setMainContent("TestMainContent");
 		mainPage.setMainImg("TestMainImg.jpg");
-		partner.setpId(UUID.randomUUID().toString());
+		//partner.setpId(UUID.randomUUID().toString());
 		partner.setpTitle("TestpTitle");
 		partner.setpContent("TestpContent");
 		partner.setpImg("TestpImg.jpg");
@@ -36,7 +36,7 @@ public class TestBean {
 		service.setsTitle("TestsTitle");
 		service.setsContent("TestsContent");
 		service.setsImg("TestsImg.jpg");
-		subService.setSbId(UUID.randomUUID().toString());
+		//subService.setSbId(UUID.randomUUID().toString());
 		subService.setSbTitle("TestSbTitle");
 		subService.setSbContent("TestSbContent");
 		subService.setSbImg("TestSbImg");
