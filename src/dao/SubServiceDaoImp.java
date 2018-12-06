@@ -1,7 +1,8 @@
 /**
- * 
+ *
  */
 package dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,38 +12,37 @@ import java.util.List;
 import bean.SubService;
 
 /**
- * @author VicP
- * 2018年12月2日
+ * @author VicP 2018年12月2日
  */
 class SubServiceDaoImp extends Common implements SubServiceDao {
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see dao.IDao#save(java.lang.Object)
-	 */
-	@Override
-	public int save(SubService ss) {
+     */
+    @Override
+    public int save(SubService ss) {
         int status = 0;
         try {
             Connection con = getConnection();
             PreparedStatement ps = con.prepareStatement(
-                    "insert into SubService values(?,?,?,?,?)");
-            ps.setObject(1, ss.getSbId());
-            ps.setString(2, ss.getSbImg());
-            ps.setString(3, ss.getSbTitle());
-			ps.setString(4, ss.getSbContent());
-			ps.setString(5, ss.getsId());
+                    "insert into SubService values(DEFAULT,?,?,?,?)");
+            //ps.setObject(1, ss.getSbId());
+            ps.setString(1, ss.getSbImg());
+            ps.setString(2, ss.getSbTitle());
+            ps.setString(3, ss.getSbContent());
+            ps.setString(4, ss.getsId());
             status = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
         return status;
-	}
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see dao.IDao#update(java.lang.Object)
-	 */
-	@Override
-	public int update(SubService ss) {
+     */
+    @Override
+    public int update(SubService ss) {
         int status = 0;
         try {
             Connection con = getConnection();
@@ -50,21 +50,21 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
                     "update SubService set Sb_Img=?,Sb_Title=?,Sb_Content=?,S_id=? where Sb_id=?");
             ps.setString(1, ss.getSbImg());
             ps.setString(2, ss.getSbTitle());
-			ps.setString(3, ss.getSbContent());
-			ps.setString(4, ss.getsId());
-			ps.setString(5, ss.getSbId());
+            ps.setString(3, ss.getSbContent());
+            ps.setString(4, ss.getsId());
+            ps.setString(5, ss.getSbId());
             status = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }
         return status;
-	}
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see dao.IDao#delete(java.lang.Object)
-	 */
-	@Override
-	public int delete(SubService ss) {
+     */
+    @Override
+    public int delete(SubService ss) {
         int status = 0;
         try {
             Connection con = getConnection();
@@ -76,13 +76,13 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
         }
 
         return status;
-	}
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see dao.IDao#getAllRecords()
-	 */
-	@Override
-	public List<SubService> getAllRecords() {
+     */
+    @Override
+    public List<SubService> getAllRecords() {
         List<SubService> list = new ArrayList<SubService>();
 
         try {
@@ -91,24 +91,24 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 SubService ss = new SubService();
-                ss.setSbId(rs.getString("Sb_id"));  
-				ss.setSbImg(rs.getString("Sb_Img"));  
-                ss.setSbTitle(rs.getString("Sb_Title"));                  
+                ss.setSbId(rs.getString("Sb_id"));
+                ss.setSbImg(rs.getString("Sb_Img"));
+                ss.setSbTitle(rs.getString("Sb_Title"));
                 ss.setSbContent(rs.getString("Sb_Content"));
-				ss.setsId(rs.getString("S_id"));
+                ss.setsId(rs.getString("S_id"));
                 list.add(ss);
             }
         } catch (Exception e) {
             System.out.println(e);
         }
         return list;
-	}
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see dao.IDao#getRecordById(java.lang.String)
-	 */
-	@Override
-	public SubService getRecordById(String id) {
+     */
+    @Override
+    public SubService getRecordById(String id) {
         SubService ss = null;
         try {
             Connection con = getConnection();
@@ -120,13 +120,13 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
                 ss.setSbId(rs.getString("Sb_id"));
                 ss.setSbTitle(rs.getString("Sb_Img"));
                 ss.setSbContent(rs.getString("Sb_Title"));
-				ss.setSbImg(rs.getString("Sb_Content"));
-				ss.setsId(rs.getString("S_id"));
+                ss.setSbImg(rs.getString("Sb_Content"));
+                ss.setsId(rs.getString("S_id"));
             }
         } catch (Exception e) {
             System.out.println(e);
         }
         return ss;
-	}
+    }
 
 }

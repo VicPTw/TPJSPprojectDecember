@@ -1,4 +1,3 @@
-
 package dao;
 
 import java.util.List;
@@ -14,18 +13,18 @@ import bean.Partner;
  */
 class PartnerDaoImp extends Common implements PartnerDao {
 
-	@Override
-	public int save(Partner p) {
+    @Override
+    public int save(Partner p) {
         int status = 0;
         try {
             Connection con = getConnection();
             PreparedStatement ps = con.prepareStatement(
-                    "insert into Partner values(?,?,?,?,?)");
-            ps.setObject(1, p.getpId());
-            ps.setString(2, p.getpTitle());
-            ps.setString(3, p.getpImg());
-			ps.setString(4, p.getpContent());
-			ps.setString(5, p.getpLink());
+                    "insert into Partner values(DEFAULT,?,?,?,?)");
+            //ps.setObject(1, p.getpId());
+            ps.setString(1, p.getpTitle());
+            ps.setString(2, p.getpImg());
+            ps.setString(3, p.getpContent());
+            ps.setString(4, p.getpLink());
             status = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
@@ -33,18 +32,18 @@ class PartnerDaoImp extends Common implements PartnerDao {
         return status;
     }
 
-	@Override
-	public int update(Partner p) {
+    @Override
+    public int update(Partner p) {
         int status = 0;
         try {
             Connection con = getConnection();
             PreparedStatement ps = con.prepareStatement(
                     "update Partner set P_Title=?,P_Img=?,P_Content=?,P_Link=? where P_id=?");
             ps.setString(1, p.getpTitle());
-			ps.setString(2, p.getpImg());
-			ps.setString(3, p.getpContent());
-			ps.setString(4, p.getpLink());
-			ps.setString(5, p.getpId());
+            ps.setString(2, p.getpImg());
+            ps.setString(3, p.getpContent());
+            ps.setString(4, p.getpLink());
+            ps.setString(5, p.getpId());
             status = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
@@ -52,8 +51,8 @@ class PartnerDaoImp extends Common implements PartnerDao {
         return status;
     }
 
-	@Override
-	public int delete(Partner p) {
+    @Override
+    public int delete(Partner p) {
         int status = 0;
         try {
             Connection con = getConnection();
@@ -65,10 +64,10 @@ class PartnerDaoImp extends Common implements PartnerDao {
         }
 
         return status;
-	}
+    }
 
-	@Override
-	public List<Partner> getAllRecords() {
+    @Override
+    public List<Partner> getAllRecords() {
         List<Partner> list = new ArrayList<Partner>();
 
         try {
@@ -77,21 +76,21 @@ class PartnerDaoImp extends Common implements PartnerDao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Partner p = new Partner();
-                p.setpId(rs.getString("P_id"));  
-                p.setpTitle(rs.getString("P_Title"));  
-                p.setpImg(rs.getString("P_Img"));  
-                p.setpContent(rs.getString("P_Content"));  
-                p.setpLink(rs.getString("P_Link"));  
+                p.setpId(rs.getString("P_id"));
+                p.setpTitle(rs.getString("P_Title"));
+                p.setpImg(rs.getString("P_Img"));
+                p.setpContent(rs.getString("P_Content"));
+                p.setpLink(rs.getString("P_Link"));
                 list.add(p);
             }
         } catch (Exception e) {
             System.out.println(e);
         }
         return list;
-	}
+    }
 
-	@Override
-	public Partner getRecordById(String id) {
+    @Override
+    public Partner getRecordById(String id) {
         Partner p = null;
         try {
             Connection con = getConnection();
@@ -103,14 +102,13 @@ class PartnerDaoImp extends Common implements PartnerDao {
                 p.setpId(rs.getString("P_id"));
                 p.setpTitle(rs.getString("P_Title"));
                 p.setpImg(rs.getString("P_Img"));
-				p.setpContent(rs.getString("P_Content"));
-				p.setpLink(rs.getString("P_Link"));
+                p.setpContent(rs.getString("P_Content"));
+                p.setpLink(rs.getString("P_Link"));
             }
         } catch (Exception e) {
             System.out.println(e);
         }
         return p;
-	}
-    
+    }
 
 }
