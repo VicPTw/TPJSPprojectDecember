@@ -3,7 +3,8 @@
  */
 package bean;
 
-import java.util.UUID;
+import dao.DaoManager;
+
 
 /**
  * @author VicP
@@ -49,8 +50,7 @@ public class TestBean {
 		mainPage.setMainContent("TestMainContentUpdate");
 		mainPage.setMainImg("TestMainImg.jpgUpdate");
 		// PK
-		partner.setpId(getPartner().getpId());
-		partner.setpTitle("TestpTitleUpdate");
+		partner.setpId(DaoManager.getInstance().getPartnerDaoImp().getRecordById(getPartner().getpTitle()).getpId());
 		partner.setpContent("TestpContentUpdate");
 		partner.setpImg("TestpImg.jpgUpdate");
 		partner.setpLink("TestpLink.comUpdate");
@@ -60,8 +60,7 @@ public class TestBean {
 		service.setsContent("TestsContentUpdate");
 		service.setsImg("TestsImg.jpgUpdate");
 		//PK
-		subService.setSbId(getSubService().getSbId());
-		subService.setSbTitle("TestSbTitleUpdate");
+		subService.setSbId(DaoManager.getInstance().getSubServiceDaoImp().getRecordById(getSubService().getSbTitle()).getSbId());		
 		subService.setSbContent("TestSbContentUpdate");
 		subService.setSbImg("TestSbImgUpdate");
 		subService.setsId(service.getsId());
