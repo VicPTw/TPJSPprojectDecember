@@ -12,12 +12,13 @@
 <%
 TestBean testBean = new TestBean();
 // set Id
-String mpId="header",pId="BDBB96F2-250C-425C-9423-1E19772B5DA4",sId="s02",ssId="3086A908-7F41-4AC4-9AA4-529C6953ED19";
+String mpId="header",sId="s02";
+String pTitle = "646464646646", ssTitle = "Tenancy Management";
 // call getRecordById method
 testBean.setMainPage(DaoManager.getInstance().getMainPageDaoImp().getRecordById(mpId));
-testBean.setPartner(DaoManager.getInstance().getPartnerDaoImp().getRecordById(pId));
+testBean.setPartner(DaoManager.getInstance().getPartnerDaoImp().getRecordById(pTitle));
 testBean.setService(DaoManager.getInstance().getServiceDaoImp().getRecordById(sId));
-testBean.setSubService(DaoManager.getInstance().getSubServiceDaoImp().getRecordById(ssId));
+testBean.setSubService(DaoManager.getInstance().getSubServiceDaoImp().getRecordById(ssTitle));
 %>
 	<h2>MainPage</h2>
 	<table border="1" style="width:90%; margin:0 auto;">
