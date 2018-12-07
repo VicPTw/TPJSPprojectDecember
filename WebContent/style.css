@@ -107,12 +107,11 @@ nav a:hover {
 
 .about {
 	padding: var(--conpad);
-	height: 360px;
 }
 
 .about p {
 	margin-bottom: 30px;
-	text-align: justify;
+	text-align: left;
 }
 
 .services {
@@ -233,7 +232,6 @@ a:active {
 /*------Read More Button end------*/
 
 .cbrief {
-	height: 720px;
 }
 
 .cbrief img {
