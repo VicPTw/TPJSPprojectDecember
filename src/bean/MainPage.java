@@ -34,7 +34,7 @@ public class MainPage implements Serializable {
 	}
 
 	public void setMainContent(String mainContent) {
-		this.mainContent = mainContent;
+		this.mainContent = mainContent.replace("\n", "<br>");
 	}
 
 	@Override
