@@ -43,7 +43,11 @@ public class SubService implements Serializable {
 	}
 
 	public void setSbContent(String sbContent) {
-		this.sbContent = sbContent;
+		if (sbContent == null) {
+			this.sbContent = sbContent;
+		} else {
+		this.sbContent = sbContent.replace("\n", "<br>");
+		}
 	}
 
 	public String getsId() {

@@ -11,9 +11,12 @@ h1 {
 .box {
 	overflow: hidden;
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: flex-start;
 }
 .subbox {
-	margin:0 auto;
+	margin-right: 12%;
 }
 .pic {
 	width: 340px;

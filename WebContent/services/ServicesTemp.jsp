@@ -1,8 +1,16 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.SubService"%>
+<%@page import="dao.DaoManager"%>
+<%@page import="bean.Service,java.util.*"%>
+<%
+	Service s = DaoManager.getInstance().getServiceDaoImp().getRecordById(request.getParameter("sId"));
+	request.setAttribute("s", s);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Temp</title>
+<title><%=s.getsTitle()%></title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <link rel="stylesheet" href="../style.css" />
@@ -10,62 +18,27 @@
 </head>
 <body>
 	<div class="container">
-<jsp:include page="../top.jsp"/>
+		<jsp:include page="../top.jsp" />
 		<div class="content">
-			<h1>TempTitle</h1>
+			<h1><%=s.getsTitle()%></h1>
 			<div class="box">
-				<div class="subbox">
-					<div class="pic">
-						<img src="../img/Temp.jpeg" alt="" />
+				
+				<c:forEach
+					items="${DaoManager.getInstance().getSubServiceDaoImp().getAllRecordsByRef(s.getsId())}"
+					var="ss">
+					<div class="subbox">
+						<div class="pic">
+							<img src="${ss.getSbImg()}" alt="" />
+						</div>
+						<div class="text">
+							<h3>${ss.getSbTitle()}</h3>
+							<p>${ss.getSbContent()}</p>
+						</div>
 					</div>
-					<div class="text">
-						<h3>TempWords</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Dolores deleniti voluptatem alias sit at beatae libero! Commodi
-							consequuntur quia facilis veritatis rerum numquam minima vel
-							quibusdam amet cupiditate provident fuga.</p>
-					</div>
-				</div>
-				<div class="subbox">
-					<div class="pic">
-						<img src="../img/Temp.jpeg" alt="" />
-					</div>
-					<div class="text">
-						<h3>TempWords</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Repellat hic aliquam ullam enim quia incidunt tempore quibusdam
-							maxime neque reiciendis suscipit iure eaque mollitia est libero!
-							Praesentium dolorum non repudiandae?</p>
-					</div>
-				</div>
+				</c:forEach>
+				
 			</div>
-			<div class="box">
-				<div class="subbox">
-					<div class="pic">
-						<img src="../img/Temp.jpeg" alt="" />
-					</div>
-					<div class="text">
-						<h3>TempWords</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Dolores deleniti voluptatem alias sit at beatae libero! Commodi
-							consequuntur quia facilis veritatis rerum numquam minima vel
-							quibusdam amet cupiditate provident fuga.</p>
-					</div>
-				</div>
-				<div class="subbox">
-					<div class="pic">
-						<img src="../img/Temp.jpeg" alt="" />
-					</div>
-					<div class="text">
-						<h3>TempWords</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Repellat hic aliquam ullam enim quia incidunt tempore quibusdam
-							maxime neque reiciendis suscipit iure eaque mollitia est libero!
-							Praesentium dolorum non repudiandae?</p>
-					</div>
-				</div>
-			</div>
-			<a class="back" href="../index.html#Services">Back</a>
+			<a class="back" href="../index.jsp#Services">Back</a>
 		</div>
 	</div>
 </body>
