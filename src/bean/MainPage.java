@@ -3,7 +3,7 @@ package bean;
 import java.io.Serializable;
 
 public class MainPage implements Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -34,14 +34,16 @@ public class MainPage implements Serializable {
 	}
 
 	public void setMainContent(String mainContent) {
-		this.mainContent = mainContent;
+		if (mainContent == null) {
+			this.mainContent = mainContent;
+		} else {
+			this.mainContent = mainContent.replace("\n", "<br>");
+		}
 	}
 
 	@Override
 	public String toString() {
 		return "MainPage [mainTitle=" + mainTitle + ", mainImg=" + mainImg + ", mainContent=" + mainContent + "]";
 	}
-	
-	
-	
+
 }

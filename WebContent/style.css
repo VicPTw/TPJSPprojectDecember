@@ -104,17 +104,16 @@ nav a:hover {
 .content {
 	
 }
-
+/* About */
 .about {
 	padding: var(--conpad);
-	height: 360px;
 }
 
 .about p {
 	margin-bottom: 30px;
-	text-align: justify;
+	text-align: left;
 }
-
+/* Services */
 .services {
 	padding: var(--conpad);
 	background-color: var(--bgc1);
@@ -154,13 +153,13 @@ nav a:hover {
 }
 
 /*------Read More Button start------*/
-.services a {
+.s-btn {
 	text-decoration: none;
 	text-align: center;
-	width: 112px;
+	width: 142px;
 	display: block;
-	height: auto;
-	padding: 15px;
+	height: 48px;
+	font-size: 16px;
 	color: white;
 	background: #C1A073;
 	border: none;
@@ -177,11 +176,11 @@ nav a:hover {
 	bottom: 0px;
 }
 
-a:hover {
+.s-btn:hover {
 	opacity: 0.8;
 }
 
-a:active {
+.s-btn:active {
 	opacity: 0.5;
 }
 
@@ -231,9 +230,8 @@ a:active {
 	bottom: 15px;
 }
 /*------Read More Button end------*/
-
+/* Country brief */
 .cbrief {
-	height: 720px;
 }
 
 .cbrief img {
@@ -247,7 +245,7 @@ a:active {
 .cbrief .text {
 	padding: var(--conpad);
 }
-
+/* Partner */
 .partners {
 	padding: 10%;
 	padding-bottom: 0;
@@ -276,7 +274,7 @@ a:active {
 	padding: 5px;
 
 }
-
+/* Contact */
 .contact {
 	background-color: var(--bgc1);
 	padding: 0 10%;
