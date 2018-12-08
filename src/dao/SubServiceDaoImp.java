@@ -129,4 +129,27 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
         return ss;
     }
 
+    @Override
+    public List<SubService> getAllRecordsByRef(String sId) {
+        List<SubService> list = new ArrayList<SubService>();
+        try (
+                Connection con = getConnection();
+                PreparedStatement ps = con.prepareStatement("select * from SubService where S_id=?");) {
+            ps.setString(1, sId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                SubService ss = new SubService();
+                ss.setSbId(rs.getString("Sb_id"));
+                ss.setSbImg(rs.getString("Sb_Img"));
+                ss.setSbTitle(rs.getString("Sb_Title"));
+                ss.setSbContent(rs.getString("Sb_Content"));
+                ss.setsId(rs.getString("S_id"));
+                list.add(ss);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
 }

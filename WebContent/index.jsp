@@ -1,9 +1,14 @@
+<%@page import="java.util.List"%>
+<%@page import="bean.Partner"%>
+<%@page import="dao.DaoManager"%>
+<%@page import="bean.MainPage"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
 <title>TAIWAN IMMIGRATION &amp; RELOCATION CO.</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -15,15 +20,15 @@
 	$(function() {
 		$('a[href*=#]:not([href=#])').click(
 				function() {
-					if (location.pathname.replace(/^\//, '') == this.pathname
+					if (location.pathname.replace(/^\//, '') === this.pathname
 							.replace(/^\//, '')
-							|| location.hostname == this.hostname) {
+							|| location.hostname === this.hostname) {
 
 						var target = $(this.hash);
 						target = target.length ? target : $('[name='
 								+ this.hash.slice(1) + ']');
 						if (target.length) {
-							$('html,body').animate({
+							$('html,body').stop().animate({
 								scrollTop : target.offset().top
 							}, 1000);
 							return false;
@@ -61,120 +66,59 @@
 			<h3>WELCOMES TO TAIWAN</h3>
 			<p>Your Total support Immigration &amp; Relocation solutions</p>
 		</div>
+		<!-- About Start -->
+		<%
+			// Read resource from databases
+			MainPage about = DaoManager.getInstance().getMainPageDaoImp().getRecordById("about");
+		%>
 		<div class="content">
 			<div class="about" id="About">
 				<h4>ABOUT US</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Sequi ullam temporibus enim laborum! Eaque quos alias porro ullam
-					quis illum excepturi provident nulla ducimus maxime quo minima
-					velit iste laborum animi eum dolorum. Assumenda voluptates
-					voluptatum fugiat eaque commodi odio sint minus quaerat deserunt
-					quis mollitia sequi quae rem! Autem.</p>
+				<p><%=about.getMainContent()%></p>
 				<h6>TAIWAN IMMIGRATION &amp; RELOCATION CO.(TIRC) provide</h6>
 			</div>
 			<!-- About End -->
-			<div class="services" id="Services">
-				<h4>OUR SERVICES</h4>
-				<p>&nbsp;</p>
-				<div class="box">
-					<div class="pic">
-						<img src="img/visa.jpg" alt="" />
-					</div>
-					<div class="text">
-						<p>&nbsp;</p>
-						<h4>VISA / IMMIGRATION</h4>
-						<ul>
-							<li>Work Permit</li>
-							<li>Resident Visa</li>
-							<li>ARC</li>
-						</ul>
-						<a href="services/ServicesTemp.jsp">Read More >></a>
-					</div>
-				</div>
-				<div class="box">
-					<div class="pic">
-						<img src="img/relocation.jpg" alt="" />
-					</div>
-					<div class="text">
-						<p>&nbsp;</p>
-						<h4>RELOCATION SERVICES</h4>
-						<ul>
-							<li>Pre-move Orientation</li>
-							<li>School Search</li>
-							<li>Car Rental</li>
-							<li>Driving Licence Exchange</li>
-							<li>Furniture Purchase</li>
-							<li>Intercultural Training</li>
-							<li>Temporary Accommodation</li>
-							<li>Ongoing Support</li>
-						</ul>
-						<a href="services/ServicesTemp.jsp">Read More >></a>
-					</div>
-				</div>
-				<div class="box">
-					<div class="pic">
-						<img src="img/home.jpg" alt="" />
-					</div>
+			<!-- Service Start -->
 
-					<div class="text">
-						<p>&nbsp;</p>
-						<h4>HOME FINDING</h4>
-						<ul>
-							<li>Settling In</li>
-							<li>Departure Service</li>
-							<li>Short-term Rental</li>
-							<li>Tenancy Management</li>
-							<li>Real Estate Management</li>
-						</ul>
-						<a href="services/ServicesTemp.jsp">Read More >></a>
-					</div>
-				</div>
-			</div>
+			<jsp:include page="services/serviceFragment.jsp" />
 			<!-- Services End -->
+			<!-- Country Brief Start -->
+			<%
+				// Read resources from database
+				MainPage cBrief = DaoManager.getInstance().getMainPageDaoImp().getRecordById("cbrief");
+			%>
 			<div class="cbrief" id="Taiwan">
 				<div class="pic">
 					<img src="img/CountryBrief2.jpg" alt="" />
 				</div>
 				<div class="text">
 					<h4>COUNTRY BRIEF</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Perspiciatis est aperiam totam placeat voluptatem laudantium
-						expedita. Commodi nihil dolorum quibusdam.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Iure sit nulla recusandae nemo voluptates suscipit quis voluptatum
-						error possimus nostrum dolorem dolor labore aspernatur officia ut
-						voluptate aperiam quam a.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Qui ab pariatur eaque minus accusantium commodi excepturi. Impedit
-						illum sequi quam molestiae rerum accusantium aliquid obcaecati
-						aspernatur consectetur incidunt quidem fugiat!</p>
+					<p><%=cBrief.getMainContent()%></p>
 				</div>
 			</div>
-			<!-- Cbrief End -->
+			<!-- Country Brief End -->
+			<!-- Partners Start -->
+			<%
+				// Read resources from database
+				List<Partner> pList = DaoManager.getInstance().getPartnerDaoImp().getAllRecords();
+				request.setAttribute("plist", pList);
+			%>
 			<div class="partners" id="Partners">
 				<h4>OUR PARTNERS &amp; MEMBERSHIPS</h4>
-				<div class="partner">
-					<div class="pic">
-						<img src="img/partner1.JPG" alt="" />
+				<c:forEach items="${plist}" var="p">
+					<div class="partner">
+						<div class="pic">
+							<img src="${p.getpImg()}" alt="" />
+						</div>
+						<div class="text">
+							<h4>${p.getpTitle()}</h4>
+						</div>
 					</div>
-					<div class="text">
-						<h4>PEREGRINE IMMIGRATION</h4>
-
-					</div>
-
-				</div>
-				<div class="partner">
-					<div class="pic">
-						<img src="img/partner2.JPG" alt="" />
-					</div>
-					<div class="text">
-						<h4>EURA MEMBER</h4>
-					</div>
-
-				</div>
+				</c:forEach>
 				<a class="partnerRM" href="partners/Partners.jsp">Read More >></a>
 			</div>
 			<!-- Partners End -->
+			<!-- Contact Start -->
 			<div class="contact" id="Contact">
 				<h4>CONTACT US</h4>
 				<div class="textbox">
@@ -222,14 +166,12 @@
 					<!-- End Inner -->
 				</div>
 				<div class="pic">
-					<img src="img/meeting-1019875_12802.jpg" alt="" />
+					<img src="img/contact_us.jpg" alt="" />
 				</div>
 			</div>
 			<!-- Contact End -->
 		</div>
 		<footer></footer>
 	</div>
-
 </body>
-
 </html>

@@ -3,7 +3,7 @@ package bean;
 import java.io.Serializable;
 
 public class Partner implements Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -42,7 +42,11 @@ public class Partner implements Serializable {
 	}
 
 	public void setpContent(String pContent) {
-		this.pContent = pContent;
+		if (pContent == null) {
+			this.pContent = pContent;
+		} else {
+			this.pContent = pContent.replace("\n", "<br>");
+		}
 	}
 
 	public String getpLink() {
@@ -58,6 +62,5 @@ public class Partner implements Serializable {
 		return "Partner [pId=" + pId + ", pTitle=" + pTitle + ", pImg=" + pImg + ", pContent=" + pContent + ", pLink="
 				+ pLink + "]";
 	}
-	
-	
+
 }
