@@ -118,9 +118,9 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
             while (rs.next()) {
                 ss = new SubService();
                 ss.setSbId(rs.getString("Sb_id"));
-                ss.setSbTitle(rs.getString("Sb_Img"));
-                ss.setSbContent(rs.getString("Sb_Title"));
-                ss.setSbImg(rs.getString("Sb_Content"));
+                ss.setSbImg(rs.getString("Sb_Img"));
+                ss.setSbTitle(rs.getString("Sb_Title"));
+                ss.setSbContent(rs.getString("Sb_Content"));
                 ss.setsId(rs.getString("S_id"));
             }
         } catch (Exception e) {
