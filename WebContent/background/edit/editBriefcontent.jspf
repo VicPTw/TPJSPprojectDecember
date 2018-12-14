@@ -1,14 +1,22 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 <div class="Briefcontent">
-<form> 
+<form action="${pageContext.request.contextPath}/Test1C" method="post" enctype="multipart/form-data" >
 <h2>Country Brief</h2>
-<p>修改圖片及文字，圖片規格為(1200x400)</p>
+<p>修改圖片及文字，圖片規格為()</p>
 <p>內文</p>
-<p><textarea cols="50" rows="5"></textarea>
-<p>圖片上傳：<input type="file"></p>
+<p><textarea cols="50" rows="5" name="mcontent" ></textarea>
+
+
+
+<p>圖片上傳：<input type="file"name="file" ></p>
+<input type="hidden" name="operation" value="MainPageedit">
+<input type="hidden" name="title" value="cbrief">
 <h2>
+
+
 <input type="submit" value="確認修改">
+
 </h2>
 </form>
 </div>

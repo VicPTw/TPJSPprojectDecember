@@ -3,10 +3,10 @@
 
 	<div class="nav">
 	  <ul>
-		    <li><a href="editTitle.jsp">Title</a></li>
-	    <li><a href="editAbout.jsp">About us</a></li>
-          <li><a href="editServices.jsp">Services</a></li>
-           <li><a href="editCountryBrief.jsp">Country Brief</a></li>
-	    <li><a href="editPartner.jsp">Partner Member</a></li>
+		    <li><a href="${pageContext.request.contextPath}/background/edit/editTitle.jsp">Title</a></li>
+	    <li><a href="${pageContext.request.contextPath}/background/edit/editAbout.jsp">About us</a></li>
+          <li><a href="${pageContext.request.contextPath}/background/edit/editServices.jsp">Services</a></li>
+           <li><a href="${pageContext.request.contextPath}/background/edit/editCountryBrief.jsp">Country Brief</a></li>
+	    <li><a href="${pageContext.request.contextPath}/background/edit/editPartner.jsp">Partner Member</a></li>
       </ul>
 </div>
