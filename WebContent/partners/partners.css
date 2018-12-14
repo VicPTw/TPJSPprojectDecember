@@ -16,6 +16,8 @@ p {
 	background-color: var(--bgc1);
 	text-align: justify;
 	position: relative;
+        padding-top: 60px;
+        padding-bottom: 75px;
 	
 }
 
@@ -34,7 +36,8 @@ p {
 	margin-right: 18px;
 }
 
-.partners .text {
+.partners .text2 {
+    width: 85%;
 }
 
 .partner a {
