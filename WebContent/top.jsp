@@ -14,7 +14,6 @@
                 <li><a href="../index.jsp#Taiwan">Taiwan</a></li>
                 <li><a href="../index.jsp#Partners">Partners</a></li>
                 <li><a href="../index.jsp#Contact">Contact</a></li>
-                <li><a href="../index.jsp#Top">Top</a></li>
             </ul>
         </div>
     </nav>
