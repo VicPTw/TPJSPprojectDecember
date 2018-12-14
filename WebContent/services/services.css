@@ -1,6 +1,8 @@
 @charset "UTF-8";
+body {
+}
 .content {
-	padding: 10%;
+	padding: 5% 2%;
 	position: relative;
 }
 
@@ -16,7 +18,7 @@ h1 {
 	align-content: flex-start;
 }
 .subbox {
-	margin-right: 12%;
+	margin-right: 3%;
 }
 .pic {
 	width: 340px;
@@ -32,4 +34,28 @@ h1 {
 }
 .text p {
 	margin-bottom: 18px;
+}
+
+@media screen and (max-width: 768px) {
+	.box {
+		overflow: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-content: flex-start;
+	}
+	.subbox {
+	}
+	.pic {
+		width: 442px;
+		height: 305px;
+	}
+	.pic img {
+		width: 442px;
+		height: 305px;
+	}
+	.text {
+		width: 442px;
+		text-align: justify;
+	}
 }
