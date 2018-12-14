@@ -16,6 +16,7 @@ h1 {
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-content: flex-start;
+        padding-bottom: 45px;
 }
 .subbox {
 	margin-right: 3%;
@@ -24,6 +25,10 @@ h1 {
 	width: 340px;
 	height: 235px;
 	margin-bottom: 18px;
+}
+.pic .img {
+	width: 340px;
+	height: 235px;    
 }
 .text {
 	width: 340px;
@@ -47,15 +52,15 @@ h1 {
 	.subbox {
 	}
 	.pic {
-		width: 442px;
+		width: 350px;
 		height: 305px;
 	}
 	.pic img {
-		width: 442px;
+		width: 350px;
 		height: 305px;
 	}
 	.text {
-		width: 442px;
+		width: 350px;
 		text-align: justify;
 	}
 }
