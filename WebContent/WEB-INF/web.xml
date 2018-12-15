@@ -3,7 +3,7 @@
     <display-name>TPJSPprojectDecember</display-name>
     <context-param>
         <param-name>imgpath</param-name>
-        <param-value>C:\Users\user\Desktop\1205JSP實習\1203_TPJSPproject\TPJSPproject\WebContent\img\</param-value>
+        <param-value>E:\GitHub\TPJSPprojectDecember\WebContent\img\</param-value>
     </context-param>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

@@ -12,7 +12,7 @@
         
 	if(password.equals(request.getParameter("pwd")))
 	{
-            response.sendRedirect("../background/backgroundindex.jsp");       
+            response.sendRedirect("../CMS/CMSindex.jsp");       
 	}
 	else{ 
                out.println("±K½X¿ù»~");

@@ -1,0 +1,15 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="Partnercontent">
+       <h4>
+       <font size="5" color="brown">${UpdateMainPageOK}</font>
+       <font size="5" color="brown">${UpdateServicesOK}</font>
+       <font size="5" color="brown">${UpdatePartnerOK}</font>
+       <font size="5" color="brown">${SavePartnerOK}</font>
+       <font size="5" color="brown">${SaveSubServiceOK}</font>
+        <font size="5" color="red">${DeleteServices}</font>  
+        <font size="5" color="red">${DeletePartner}</font>  
+       </h4>
+       
+       <h3>點選新增、編輯、刪除後即可繼續使用該項功能。</h3>
+</div>
