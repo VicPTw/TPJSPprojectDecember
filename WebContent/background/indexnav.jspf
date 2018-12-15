@@ -4,8 +4,8 @@
 
 	<div class="nav">
 	  <ul>
-	  <li><a href="insert/insertServices.jsp">新增</a></li>
-	  <li><a href="edit/editTitle.jsp">修改</a></li>
-          <li><a href="remove/removeServices.jsp">刪除</a></li>
+	  <li><a href="${pageContext.request.contextPath}/background/insert/insertServices.jsp">新增</a></li>
+	  <li><a href="${pageContext.request.contextPath}/background/edit/editTitle.jsp">修改</a></li>
+          <li><a href="${pageContext.request.contextPath}/background/remove/removeServices.jsp">刪除</a></li>
       </ul>
 </div>

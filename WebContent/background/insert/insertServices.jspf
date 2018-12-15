@@ -1,23 +1,41 @@
 <%-- any content can be specified here e.g.: --%>
+<%@page import="dao.DaoManager"%>
+<%@page import="java.util.List"%>
+<%@page import="bean.Service"%>
 <%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="Servicescontent">
-<h2>Services</h2>
+    <h2>Services</h2>
 
-<%--需加入action --%>
-<form>
-    <p>請選擇欲新增項目</p>
+    <%--需加入action --%>
+    <form action="${pageContext.request.contextPath}/Test1C" method="post" enctype="multipart/form-data" >
+        <p>請選擇欲新增項目之主標題:
 
-    <%--  get大標題   --%>
-    <select><option></option>></select>
-<p>----------------------------------------------------------------------------------</p>
+            <%--  get大標題   --%>
+            <%-- <select name="sid">
+               <option>s01</option>
+               <option>s02</option>
+               <option>s03</option>
+           </select>--%>
+            <%
+                List<Service> slist = DaoManager.getInstance().getServiceDaoImp().getAllRecords();
+                request.setAttribute("slist", slist);
+            %>
+            <select name="sid">
+                <c:forEach var="s" items="${slist}">
+                    <option value="${s.getsId()}">${s.getsTitle()}</option>
+                </c:forEach>                                  
+            </select>
+        </p>
+        <p>----------------------------------------------------------------------------------</p>
 
-<p>標題 <input type="text" size="48"></p>
-<p>內文 <textarea cols="50" rows="5"></textarea>
-<p>圖片上傳：<input type="file" name="relocationp"></p>
-
-<h2>
-    <input type="submit" value="確認新增">
-</h2>            
-</form>
+        <p>標題 <input type="text" size="48" name="Servicetitle"></p>
+        <p>內文 <textarea cols="50" rows="5" name="Servicecontent"></textarea>
+        <p>圖片上傳：<input type="file" name="file" required acept="image/png,image/jpeg"></p>
+        <h2>
+            <input type="submit" value="確認新增">
+            <input type="hidden" name="operation" value="Servicesinser">
+        </h2>            
+    </form>
 </div>

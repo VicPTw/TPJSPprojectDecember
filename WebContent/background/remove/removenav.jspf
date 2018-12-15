@@ -2,8 +2,8 @@
 <%@ page pageEncoding="UTF-8" %>
 	<div class="nav">
 	  <ul>
-          <li><a href="removeServices.jsp">Services</a></li>
-	  <li><a href="removePartner.jsp">Partner Member</a></li>
+          <li><a href="${pageContext.request.contextPath}/background/remove/removeServices.jsp">Services</a></li>
+	  <li><a href="${pageContext.request.contextPath}/background/remove/removePartner.jsp">Partner Member</a></li>
       </ul>
 </div>
 
