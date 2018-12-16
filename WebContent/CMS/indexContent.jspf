@@ -1,8 +1,15 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 <div class="indexcontent">
+            <div class="logout">
+            <form action="${pageContext.request.contextPath}/Validation" method="POST">
+            <input type="submit" value="登出">
+            <input type="hidden" name="logout" value="logout">
+            </form>
+            </div>
 <h3>此頁面為後台管理系統，點選新增、編輯、刪除即可開始使用該項功能。</h3>
-<h3>注意在新增圖片時都有固定的規格，上傳前請再次注意。</h3>
-<h3>刪除資料時請多注意，刪除功能時會使用到的密碼為管理員登入時使用的密碼。</h3>
-<h3>請勿輸入英文以外的文字在網頁中，也請注意上傳圖片的檔名需為英文，然後圖片檔名請不要跟上傳過的檔名一樣。</h3>
+<h3>在新增圖片時都有固定的規格，上傳前請再次注意。</h3>
+<h3>刪除資料時會使用到的密碼為管理員登入時使用的密碼。</h3>
+<h3>編輯時，請勿輸入英文以外的文字在網頁中，注意上傳圖片的檔名需為英文，圖片檔名請不要跟上傳過的檔名一樣。</h3>
+<h3>如果點擊登出會回到登入畫面，需重新登入才可繼續使用功能。</h3>
 </div>

@@ -26,7 +26,7 @@ body{
 }
 
 .header p a{
-    
+            
             color:#000000;
             display: block;
             text-decoration: none;
@@ -39,58 +39,17 @@ body{
             color:black;
             float:right;
             background-color: burlywood;
+            margin:15px;
 }
+
+
+
 .header p a:visited{color:#000000;
 
 }
 .header p a:hover{color:#CC5500;
 
 }
-
-
-
-
-
-
-
-
-.nav1{
-    clear:both;
-    padding-top:5px; 
-    width: 1200px;
-}
-
-.nav1 ul{padding-left:360px;}
-
-.nav1 ul li{list-style: none;}
-
-.nav1 ul li a{
-    color:#000000;
-    display:block;
-              text-align: center;
-              width: 80px;
-              height: 60px;
-              line-height: 60px;
-              background-color: burlywood;
-              text-decoration: none;
-              border-bottom: rgba(255,255,255,1.00) 1px dashed;
-              border-radius: 5px;
-              float: left;
-              margin:10px;
-}
-.nav1 ul li a:visited{color:#000000;
-      
-}
-
-.nav1 ul li a:hover{color:#CC5500;
-      
-}
-
-
-
-
-
-
 
 
 
@@ -177,8 +136,31 @@ body{
 
 }
 
+.logout input[type="submit"]{
+            padding:0px;
+            border-radius:0px;
+            margin-right: 7.5px;
+            color:#000000;
+            display: block;
+            text-decoration: none;
+            width: 140px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border:0 none;
+            border-radius: 5px;
+            color:black;
+            float:right;
+            background-color: burlywood;
+}
+.logout input[type="submit"]:visited{color:#000000;
 
+}
+.logout input[type="submit"]:hover{
+    background:burlywood; 
+    color:#CC5500;
 
+}
 
 
 

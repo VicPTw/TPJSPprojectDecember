@@ -2,5 +2,5 @@
 <%@ page pageEncoding="UTF-8" %>
            <div class="header">
         <p><a href="${pageContext.request.contextPath}/CMS/CMSindex.jsp">回到管理頁面</a></p>
-    <h1>後台管理</h1>
+    <h1>後台管理系統</h1>
     </div>
