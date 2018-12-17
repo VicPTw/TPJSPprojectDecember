@@ -12,8 +12,8 @@ todo list today in google cloud
 
 (user, password, DBdriver)
 
-*For information security
-Tomcat server.xml filter setting
+*For information security and setCharacterEncodingFilter
+Tomcat server.xml filter and mapping setting
 
 *For Tomcat encode
 Tomcat context.xml 
