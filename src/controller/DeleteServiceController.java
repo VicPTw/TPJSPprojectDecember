@@ -5,7 +5,6 @@
  */
 package controller;
 
-import bean.Service;
 import bean.SubService;
 import dao.DaoManager;
 import java.io.IOException;
@@ -26,6 +25,11 @@ import pass.Check;
 public class DeleteServiceController extends HttpServlet {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -43,7 +47,6 @@ public class DeleteServiceController extends HttpServlet {
         String password = check.getPassword();
         String sTitlec = request.getParameter("sTitlec");
         String sbTitlec = request.getParameter("sbTitlec");
-        Service s = DaoManager.getInstance().getServiceDaoImp().getRecordById(sTitlec);
         SubService sb = DaoManager.getInstance().getSubServiceDaoImp().getRecordById(sbTitlec);
 
         if (sTitlec != null) {

@@ -9,10 +9,16 @@ package bean;
  */
 class EncodeUtil {
 	static String HTMLEncode(String setters) {
-		String[] oldChar = {"& ", "<", ">", " ", "\"", "\'",
+//		String[] oldChar = {"& ", "<", ">"/*, " "*/, "\"", "\'",
+//				"¢", "£", "¥", "€", "©", "®", "‚",
+//				"’", "“", "”", "\n"};
+//		String[] newChar = {"&amp;", "&lt;", "&gt;"/*, "&nbsp;"*/, "&quot;",
+//				"&apos;", "&cent;", "&pound;", "&yen;", "&euro;", "&copy;", "&reg;", "&lsquor;",
+//				"&apos;", "&ldquo;", "&rdquo;", "<br>"};
+		String[] oldChar = {"& ", "<script>"/*, " "*/, "\"", "\'",
 							"¢", "£", "¥", "€", "©", "®", "‚",
 							"’", "“", "”", "\n"};
-		String[] newChar = {"&amp;", "&lt;", "&gt;", "&nbsp;", "&quot;",
+		String[] newChar = {"&amp;", "invalid string"/*, "&nbsp;"*/, "&quot;",
 							"&apos;", "&cent;", "&pound;", "&yen;", "&euro;", "&copy;", "&reg;", "&lsquor;",
 							"&apos;", "&ldquo;", "&rdquo;", "<br>"};
 		for (int i = 0; i < oldChar.length; i++) {
