@@ -1,7 +1,6 @@
 
 package controller;
 
-import bean.Service;
 import bean.SubService;
 import dao.DaoManager;
 import java.io.IOException;
@@ -21,14 +20,16 @@ import javax.servlet.http.HttpServletResponse;
 public class DoubleSelectController extends HttpServlet {
 
     
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         RequestDispatcher rd = null;
         String sTitlec = request.getParameter("sTitlec");
-        Service s = DaoManager.getInstance().getServiceDaoImp().getRecordById(sTitlec);
-        String sbTitlec = request.getParameter("sbTitlec");
-        SubService sb = DaoManager.getInstance().getSubServiceDaoImp().getRecordById(sbTitlec);
 
         if (sTitlec != null) {
             List<SubService> sbList = DaoManager.getInstance().getSubServiceDaoImp().getAllRecordsByRef(sTitlec);

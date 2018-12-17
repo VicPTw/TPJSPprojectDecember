@@ -1,11 +1,8 @@
 package controller;
 
 import bean.Partner;
-import bean.Service;
-import bean.SubService;
 import dao.DaoManager;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +19,11 @@ import pass.Check;
 public class DeletePartnerController extends HttpServlet {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
