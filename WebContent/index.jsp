@@ -89,7 +89,6 @@
 			<div class="about" id="About">
 				<h4>ABOUT US</h4>
 				<p><%=about.getMainContent()%></p>
-				<h6>TAIWAN IMMIGRATION &amp; RELOCATION CO.(TIRC) provide</h6>
 			</div>
 			<!-- About End -->
 			<!-- Service Start -->
@@ -189,7 +188,9 @@
 			</div>
 			<!-- Contact End -->
 		</div>
-		<footer></footer>
+		<footer>
+                    <h5>TAIWAN IMMIGRATION &amp; RELOCATION CO.(TIRC) provide</h5>
+                </footer>
 	</div>
 </body>
 </html>

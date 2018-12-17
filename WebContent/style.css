@@ -24,6 +24,7 @@ h4 {
 body {
 	text-align: center;
 	background-color: #C1A073;
+        word-wrap: break-word;
 }
 
 .container {
@@ -316,14 +317,12 @@ nav a:hover {
 
 /* Contact */
 .contact {
-	background-color: var(--bgc1);
-	padding: 0 10%;
-	text-align: left;
+	padding: 5% 10% 1%;
+	text-align: center;
 	overflow: hidden;
 }
 
 .contact h4 {
-	text-indent: 6%;
 }
 
 .contact img {
@@ -341,7 +340,10 @@ nav a:hover {
 }
 
 footer {
-	clear: both;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    clear: both;
 }
 
 /* Contact Form */
