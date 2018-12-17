@@ -1,0 +1,7 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="header">
+    <p><a href="${pageContext.request.contextPath}/index.jsp">回網站首頁</a></p>
+
+    <h1>後台管理系統</h1>
+</div>

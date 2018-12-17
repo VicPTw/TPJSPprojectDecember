@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <title>登入畫面</title>
 
-        <link href="login.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/login/login.css" rel="stylesheet" type="text/css">
     </head>
 
 
@@ -19,11 +19,13 @@
 
 
         <div class="login">
-            <form method=post name=FORM1> 
+            <form method=post name=FORM1 action="${pageContext.request.contextPath}/Validation"> 
                 <h1>後台管理系統</h1>
                 <p>密碼：<input type="password" name="pwd" size="20"  onkeydown='runScript(event)'></p>
+                <input type="hidden" name="login" value="login">
                 <input name=button1 type=button value="登入" onClick='SS()'><br>
             </form>
+            <font color="red">${pwdError}</font>
             <script type="text/javascript">
 
                 function CheckData()
@@ -37,7 +39,6 @@
 
                 function SS()
                 {
-                    document.FORM1.action = "SS.jsp";
                     CheckData();
                 }
 
