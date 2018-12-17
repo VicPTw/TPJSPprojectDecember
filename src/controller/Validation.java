@@ -64,7 +64,6 @@ public class Validation extends HttpServlet {
             pwd = (String) session.getAttribute("pwd");
             session.invalidate();
             rd = request.getRequestDispatcher("login/login.jsp");
-            return;
         }
         rd.forward(request, response);
 
