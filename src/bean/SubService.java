@@ -35,7 +35,11 @@ public class SubService implements Serializable {
 	}
 
 	public void setSbTitle(String sbTitle) {
-		this.sbTitle = sbTitle;
+		if (sbTitle == null) {
+			this.sbTitle = sbTitle;
+		} else {
+			this.sbTitle = EncodeUtil.HTMLEncode(sbTitle);
+		}
 	}
 
 	public String getSbContent() {
@@ -46,7 +50,7 @@ public class SubService implements Serializable {
 		if (sbContent == null) {
 			this.sbContent = sbContent;
 		} else {
-		this.sbContent = sbContent.replace("\n", "<br>");
+		this.sbContent = EncodeUtil.HTMLEncode(sbContent);
 		}
 	}
 

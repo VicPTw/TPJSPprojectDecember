@@ -1,8 +1,9 @@
 @charset "UTF-8";
 body {
+    word-wrap: break-word;
 }
 .content {
-	padding: 5% 2%;
+	padding: 75px 2% 5% 2%;
 	position: relative;
 }
 
@@ -16,6 +17,7 @@ h1 {
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-content: flex-start;
+        padding-bottom: 45px;
 }
 .subbox {
 	margin-right: 3%;
@@ -25,15 +27,21 @@ h1 {
 	height: 235px;
 	margin-bottom: 18px;
 }
+.pic img {
+	width: 340px;
+	height: 235px;    
+}
 .text {
 	width: 340px;
 	text-align: justify;
 }
 .text h3 {
 	margin-bottom: 18px;
+        width: 100%;
 }
 .text p {
 	margin-bottom: 18px;
+        width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -47,15 +55,15 @@ h1 {
 	.subbox {
 	}
 	.pic {
-		width: 442px;
+		width: 350px;
 		height: 305px;
 	}
 	.pic img {
-		width: 442px;
+		width: 350px;
 		height: 305px;
 	}
 	.text {
-		width: 442px;
+		width: 350px;
 		text-align: justify;
 	}
 }

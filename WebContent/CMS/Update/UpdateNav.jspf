@@ -1,0 +1,12 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+	<div class="nav">
+	  <ul>
+		    <li><a href="${pageContext.request.contextPath}/CMS/Update/UpdateTitle.jsp">Title</a></li>
+	    <li><a href="${pageContext.request.contextPath}/CMS/Update/UpdateAbout.jsp">About us</a></li>
+          <li><a href="${pageContext.request.contextPath}/CMS/Update/UpdateServices.jsp">Services</a></li>
+           <li><a href="${pageContext.request.contextPath}/CMS/Update/UpdateCountryBrief.jsp">Country Brief</a></li>
+	    <li><a href="${pageContext.request.contextPath}/CMS/Update/UpdatePartner.jsp">Partner Member</a></li>
+      </ul>
+</div>

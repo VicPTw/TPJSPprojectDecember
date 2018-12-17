@@ -1,18 +1,19 @@
 # TPJSPprojectDecember
-2018/12/05 backup
+2018/12/17 backup
 
-(++)web+bean+dao+login+sendMail
-
-(--)controller
+Version1.0 beta
 
 TODO list:
 
-1.controller
-
-2.Make background hide
-
+todo list today in google cloud
 
 
 *You must verify your database access first.
 
 (user, password, DBdriver)
+
+*For information security and setCharacterEncodingFilter
+Tomcat server.xml filter and mapping setting
+
+*For Tomcat encode
+Tomcat context.xml 

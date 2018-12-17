@@ -1,6 +1,0 @@
-<%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
-           <div class="header">
-        <p><a href="../backgroundindex.jsp">回到管理頁面</a></p>
-    <h1>後台管理</h1>
-    </div>

@@ -18,7 +18,7 @@
         <script src="../js/bootstrap.js"></script>
         <script type="text/javascript" src="../js/jquery.parallax-1.1.3.js"></script>
         <link rel="stylesheet" href="../style.css" />
-        <link rel="stylesheet" href="services.css" />
+        <link rel="stylesheet" href="<c:url value='services.css'/>" />
     </head>
     <body>
         <div class="container">

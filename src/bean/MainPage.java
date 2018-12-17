@@ -18,7 +18,11 @@ public class MainPage implements Serializable {
 	}
 
 	public void setMainTitle(String mainTitle) {
-		this.mainTitle = mainTitle;
+		if (mainTitle == null) {
+			this.mainTitle = mainTitle;
+		} else {
+			this.mainTitle = EncodeUtil.HTMLEncode(mainTitle);
+		}
 	}
 
 	public String getMainImg() {
@@ -37,7 +41,7 @@ public class MainPage implements Serializable {
 		if (mainContent == null) {
 			this.mainContent = mainContent;
 		} else {
-			this.mainContent = mainContent.replace("\n", "<br>");
+			this.mainContent = EncodeUtil.HTMLEncode(mainContent);
 		}
 	}
 

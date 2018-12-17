@@ -1,0 +1,11 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<div class="nav"> 
+    <ul>
+        <li><a href="${pageContext.request.contextPath}/login/login.jsp">返回登入頁</a></li>
+    </ul>
+</div>
+<div class="indexcontent">
+    <font color="red">尚未登入，請回到登入頁進行登入。</font>
+</div>
