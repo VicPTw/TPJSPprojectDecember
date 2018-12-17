@@ -26,7 +26,11 @@ public class Service  implements Serializable {
 	}
 
 	public void setsTitle(String sTitle) {
-		this.sTitle = sTitle;
+		if (sTitle == null) {
+			this.sTitle = sTitle;
+		} else {
+			this.sTitle = EncodeUtil.HTMLEncode(sTitle);
+		}
 	}
 
 	public String getsContent() {
@@ -34,7 +38,11 @@ public class Service  implements Serializable {
 	}
 
 	public void setsContent(String sContent) {
-		this.sContent = sContent;
+		if (sContent == null) {
+			this.sContent = sContent;
+		} else {
+			this.sContent = EncodeUtil.HTMLEncode(sContent);
+		}
 	}
 
 	public String getsImg() {

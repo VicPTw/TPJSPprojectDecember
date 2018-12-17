@@ -12,12 +12,6 @@
     <form action="${pageContext.request.contextPath}/MainController" method="post" enctype="multipart/form-data" >
         <p>請選擇欲新增項目之主標題:
 
-            <%--  get大標題   --%>
-            <%-- <select name="sid">
-               <option>s01</option>
-               <option>s02</option>
-               <option>s03</option>
-           </select>--%>
             <%
                 List<Service> slist = DaoManager.getInstance().getServiceDaoImp().getAllRecords();
                 request.setAttribute("slist", slist);

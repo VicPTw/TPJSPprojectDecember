@@ -26,7 +26,11 @@ public class Partner implements Serializable {
 	}
 
 	public void setpTitle(String pTitle) {
-		this.pTitle = pTitle;
+		if (pTitle == null) {
+			this.pTitle = pTitle;
+		} else {
+			this.pTitle = EncodeUtil.HTMLEncode(pTitle);
+		}
 	}
 
 	public String getpImg() {
@@ -45,7 +49,7 @@ public class Partner implements Serializable {
 		if (pContent == null) {
 			this.pContent = pContent;
 		} else {
-			this.pContent = pContent.replace("\n", "<br>");
+			this.pContent = EncodeUtil.HTMLEncode(pContent);
 		}
 	}
 

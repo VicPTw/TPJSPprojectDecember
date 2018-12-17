@@ -28,6 +28,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import com.sun.swing.internal.plaf.basic.resources.basic;
+
 /**
  *
  * @author user
@@ -95,8 +97,11 @@ public class MainController extends HttpServlet {
                     rd.forward(request, response);
 
                 } catch (FileNotFoundException e) {
+//                	
+//                	request.setAttribute("ERROR", "上傳出現問題" + "<br>" + fileName
+//                			+ "<br>ERROR" + e.getMessage());
                     out.println("上傳出現問題" + "<br>" + fileName);
-                    out.println("<br/>ERROR" + e.getMessage());
+                    out.println("<br>ERROR" + e.getMessage());
                     log("檔案出現問題:" + e);
 
                 } finally {
@@ -233,7 +238,7 @@ public class MainController extends HttpServlet {
                         request.setAttribute("UpdateServicesOK", "修改服務成功。");
                         rd = request.getRequestDispatcher("CMS/Successful/Successful.jsp");
                         rd.forward(request, response);
-
+                        break;
                     }
 
             }

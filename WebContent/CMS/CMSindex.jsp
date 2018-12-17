@@ -19,6 +19,7 @@
                 <c:when test="${ pwd != null }">
                     <%@include file="indexNav.jspf"  %>
                     <%@include file="indexContent.jspf"  %>
+                    <p>${ERROR}</p>
                 </c:when>
                 <c:otherwise>   
                     <%@include file="Validation/Validation.jspf"  %>

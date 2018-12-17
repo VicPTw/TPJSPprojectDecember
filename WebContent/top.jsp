@@ -3,7 +3,7 @@
     <div class="menuicon">
         <img src="../img/baseline-list-24px.svg" alt="menuicon"></div>
 			<header>
-				<h3><img src="../img/LOGO.png" alt="LOGO"></h3>
+				<h3><a href="../index.jsp"><img src="../img/LOGO.png" alt="LOGO"></a></h3>
 				<div class="title">				
 				<h2>TAIWAN IMMIGRATION &amp; RELOCATION CO.LTD</h2>
 				<p>professional. Trustworthy. Honest</p>
