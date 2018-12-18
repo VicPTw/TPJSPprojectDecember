@@ -17,7 +17,6 @@
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
-<script src="MyJS.js"></script>
 <script>
 	$(function() {
 		$('a[href*=#]:not([href=#])').click(
@@ -52,7 +51,6 @@
 				<h3><a href="index.jsp"><img src="img/LOGO.png" alt="LOGO"></a></h3>
 				<div class="title">				
 				<h2>TAIWAN IMMIGRATION &amp; RELOCATION CO.LTD</h2>
-				<p>professional. Trustworthy. Honest</p>
 				</div>
 			</header>
 			<nav>
