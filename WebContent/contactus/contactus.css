@@ -11,7 +11,12 @@
             background-color: burlywood;
             margin:0 auto;
 }
-h1{
- padding:25px;   
-    
+
+.mail{
+    margin: 0 auto;
+}
+
+.mail h3{
+ padding:25px; 
+ text-align: center;
 }
