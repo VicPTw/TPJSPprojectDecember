@@ -17,7 +17,7 @@
 			</div>
 			<div class="text">
 				<p>&nbsp;</p>
-				<h4>${s.getsTitle()}</h4>
+				<h5>${s.getsTitle()}</h5>
 				<ul>
 					<c:forEach
 						items="${DaoManager.getInstance().getSubServiceDaoImp().getAllRecordsByRef(s.getsId())}"
