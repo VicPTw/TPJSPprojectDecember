@@ -29,7 +29,8 @@ h1 {
 }
 .pic img {
 	width: 340px;
-	height: 235px;    
+	height: 235px;   
+        border: 4px #4F4F4F solid;
 }
 .text {
 	width: 340px;
