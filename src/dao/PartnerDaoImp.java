@@ -20,7 +20,7 @@ class PartnerDaoImp extends Common implements PartnerDao {
         try (
                 Connection con = getConnection();
                 PreparedStatement ps = con.prepareStatement(
-                        "insert into Partner values(DEFAULT,?,?,?,?)");) {
+                        "insert into Partner values(DEFAULT,?,?,?,?,DEFAULT)");) {
             //ps.setObject(1, p.getpId());
             ps.setString(1, p.getpTitle());
             ps.setString(2, p.getpImg());
@@ -84,7 +84,7 @@ class PartnerDaoImp extends Common implements PartnerDao {
 
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("select * from Partner");
+                PreparedStatement ps = con.prepareStatement("select * from Partner Order By P_Date");
                 ResultSet rs = ps.executeQuery();) {
             while (rs.next()) {
                 Partner p = new Partner();

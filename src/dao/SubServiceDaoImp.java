@@ -25,7 +25,7 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
         try (
                 Connection con = getConnection();
                 PreparedStatement ps = con.prepareStatement(
-                        "insert into SubService values(DEFAULT,?,?,?,?)");) {
+                        "insert into SubService values(DEFAULT,?,?,?,?,DEFAULT)");) {
             //ps.setObject(1, ss.getSbId());
             ps.setString(1, ss.getSbImg());
             ps.setString(2, ss.getSbTitle());
@@ -87,7 +87,7 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
 
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("select * from SubService");
+                PreparedStatement ps = con.prepareStatement("select * from SubService Order By Sb_Date");
                 ResultSet rs = ps.executeQuery();) {
             while (rs.next()) {
                 SubService ss = new SubService();
@@ -134,7 +134,7 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
         List<SubService> list = new ArrayList<SubService>();
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("select * from SubService where S_id=?");) {
+                PreparedStatement ps = con.prepareStatement("select * from SubService where S_id=? Order By Sb_Date");) {
             ps.setString(1, sId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
