@@ -344,6 +344,7 @@ nav a:hover {
 
 .contact img {
 	width: 100%;
+        border: 4px #4F4F4F solid;
 }
 
 .contact .textbox {
@@ -353,7 +354,8 @@ nav a:hover {
 
 .contact .pic {
 	float: right;
-	width: 40%
+	width: 40%;
+        vertical-align: bottom;
 }
 
 footer {

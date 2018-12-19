@@ -181,13 +181,15 @@
 					<!-- End Inner -->
 				</div>
 				<div class="pic">
+                                    <p><a href="mailto:Jensen jensen@twimmirelocation.com">Jensen jensen@twimmirelocation.com</a><br>
+                                    <a href="mailto:Kyle kyle.twimmirelocation@gmail.com">Kyle kyle.twimmirelocation@gmail.com</a></p>
 					<img src="<%=contact.getMainImg()%>" alt="" />
 				</div>
 			</div>
 			<!-- Contact End -->
 		</div>
 		<footer>
-                    <h5>TAIWAN IMMIGRATION &amp; RELOCATION CO.(TIRC) provide</h5>
+                    <h5>TAIWAN IMMIGRATION &amp; RELOCATION CO.LTD provide</h5>
                 </footer>
 	</div>
 </body>

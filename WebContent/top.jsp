@@ -6,7 +6,6 @@
 				<h3><a href="../index.jsp"><img src="../img/LOGO.png" alt="LOGO"></a></h3>
 				<div class="title">				
 				<h2>TAIWAN IMMIGRATION &amp; RELOCATION CO.LTD</h2>
-				<p>professional. Trustworthy. Honest</p>
 				</div>
 			</header>
     <nav>
