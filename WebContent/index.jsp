@@ -136,6 +136,7 @@
 			%>
 			<div class="contact" id="Contact">
 				<h4>CONTACT US</h4>
+				<div class="ctBox">
 				<div class="textbox">
 					<!-- Contact Inner -->
 					<div class="inner contact">
@@ -172,8 +173,6 @@
 										class="form-btn semibold">Send Message</button>
 								</div>
 								<!-- End Bottom Submit -->
-								<!-- Clear -->
-								<div class="clear"></div>
 							</form>
 						</div>
 						<!-- End Contact Form Area -->
@@ -181,9 +180,10 @@
 					<!-- End Inner -->
 				</div>
 				<div class="pic">
-                                    <p><a href="mailto:Jensen jensen@twimmirelocation.com">Jensen jensen@twimmirelocation.com</a><br>
+                                    <p><a href="mailto:Jensen jensen@twimmirelocation.com">Jensen jensen@twimmirelocation.com</a><br><br>
                                     <a href="mailto:Kyle kyle.twimmirelocation@gmail.com">Kyle kyle.twimmirelocation@gmail.com</a></p>
 					<img src="<%=contact.getMainImg()%>" alt="" />
+				</div>
 				</div>
 			</div>
 			<!-- Contact End -->
