@@ -17,7 +17,6 @@
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
-<script src="MyJS.js"></script>
 <script>
 	$(function() {
 		$('a[href*=#]:not([href=#])').click(
@@ -52,7 +51,6 @@
 				<h3><a href="index.jsp"><img src="img/LOGO.png" alt="LOGO"></a></h3>
 				<div class="title">				
 				<h2>TAIWAN IMMIGRATION &amp; RELOCATION CO.LTD</h2>
-				<p>professional. Trustworthy. Honest</p>
 				</div>
 			</header>
 			<nav>
@@ -138,6 +136,7 @@
 			%>
 			<div class="contact" id="Contact">
 				<h4>CONTACT US</h4>
+				<div class="ctBox">
 				<div class="textbox">
 					<!-- Contact Inner -->
 					<div class="inner contact">
@@ -174,8 +173,6 @@
 										class="form-btn semibold">Send Message</button>
 								</div>
 								<!-- End Bottom Submit -->
-								<!-- Clear -->
-								<div class="clear"></div>
 							</form>
 						</div>
 						<!-- End Contact Form Area -->
@@ -183,13 +180,16 @@
 					<!-- End Inner -->
 				</div>
 				<div class="pic">
+                                    <p>Jensen <a href="mailto:ensen@twimmirelocation.com">jensen@twimmirelocation.com</a><br><br>
+                                    Kyle <a href="mailto:kyle.twimmirelocation@gmail.com">kyle.twimmirelocation@gmail.com</a></p>
 					<img src="<%=contact.getMainImg()%>" alt="" />
+				</div>
 				</div>
 			</div>
 			<!-- Contact End -->
 		</div>
 		<footer>
-                    <h5>TAIWAN IMMIGRATION &amp; RELOCATION CO.(TIRC) provide</h5>
+                    <h5>Copyright &copy; 2018 TAIWAN IMMIGRATION &amp; RELOCATION CO.LTD All rights reserved.</h5>
                 </footer>
 	</div>
 </body>
