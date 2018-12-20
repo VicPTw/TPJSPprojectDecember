@@ -20,7 +20,7 @@
     <display-name>TPJSPprojectDecember</display-name>
     <context-param>
         <param-name>imgpath</param-name>
-        <param-value>C:\Program Files\Apache Software Foundation\Tomcat 8.0\wtpwebapps\TPJSPprojectDecember\img\</param-value>
+        <param-value>C:\Users\user\Desktop\1205JSP實習\1203_TPJSPproject\TPJSPproject\build\web\img\</param-value>
     </context-param>
 
     <filter>

@@ -29,7 +29,7 @@
 
         <select name="sbTitlec">
             <c:forEach items="${sbList}" var="sb">
-                <option>${sb.getSbTitle()}</option>
+                <option value="${sb.getSbId()}">${sb.getSbTitle()}</option>
             </c:forEach>
 
         </select>

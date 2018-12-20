@@ -180,8 +180,8 @@
 					<!-- End Inner -->
 				</div>
 				<div class="pic">
-                                    <p><a href="mailto:Jensen jensen@twimmirelocation.com">Jensen jensen@twimmirelocation.com</a><br><br>
-                                    <a href="mailto:Kyle kyle.twimmirelocation@gmail.com">Kyle kyle.twimmirelocation@gmail.com</a></p>
+                                    <p>Jensen <a href="mailto:ensen@twimmirelocation.com">jensen@twimmirelocation.com</a><br><br>
+                                    Kyle <a href="mailto:kyle.twimmirelocation@gmail.com">kyle.twimmirelocation@gmail.com</a></p>
 					<img src="<%=contact.getMainImg()%>" alt="" />
 				</div>
 				</div>
@@ -189,7 +189,7 @@
 			<!-- Contact End -->
 		</div>
 		<footer>
-                    <h5>TAIWAN IMMIGRATION &amp; RELOCATION CO.LTD provide</h5>
+                    <h5>Copyright &copy; 2018 TAIWAN IMMIGRATION &amp; RELOCATION CO.LTD All rights reserved.</h5>
                 </footer>
 	</div>
 </body>

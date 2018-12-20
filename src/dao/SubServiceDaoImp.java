@@ -68,8 +68,8 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
         int status = 0;
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("delete from SubService where Sb_Title=?");) {
-            ps.setString(1, ss.getSbTitle());
+                PreparedStatement ps = con.prepareStatement("delete from SubService where Sb_id=?");) {
+            ps.setString(1, ss.getSbId());
             status = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
