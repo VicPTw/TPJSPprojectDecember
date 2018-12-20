@@ -15,7 +15,6 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -74,7 +73,6 @@ public class MainController extends HttpServlet {
             final String fileName = getFileName(filePart);
             OutputStream os = null;
             InputStream is = null;
-            final PrintWriter out = response.getWriter();
             if (!fileName.equals("")) {
                 try {
                     String path = a + fileName;
@@ -223,8 +221,6 @@ public class MainController extends HttpServlet {
                     rd.forward(request, response);
 
                 } catch (FileNotFoundException e) {
-                    out.println("上傳出現問題" + "<br>" + fileName);
-                    out.println("<br/>ERROR" + e.getMessage());
                     log("檔案出現問題:" + e);
 
                 } finally {
@@ -233,9 +229,6 @@ public class MainController extends HttpServlet {
                     }
                     if (is != null) {
                         is.close();
-                    }
-                    if (out != null) {
-                        out.close();
                     }
                 }
             }
