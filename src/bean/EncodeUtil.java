@@ -8,7 +8,7 @@ package bean;
  * 2018年12月17日
  */
 class EncodeUtil {
-	static String HTMLEncode(String setters) {
+	 static String HTMLEncode(String setters) {
 //		String[] oldChar = {"& ", "<", ">"/*, " "*/, "\"", "\'",
 //				"¢", "£", "¥", "€", "©", "®", "‚",
 //				"’", "“", "”", "\n"};
@@ -26,4 +26,5 @@ class EncodeUtil {
 		}
 		return setters;
 	}
+
 }
