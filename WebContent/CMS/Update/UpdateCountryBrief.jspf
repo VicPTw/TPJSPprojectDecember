@@ -23,7 +23,7 @@
 
 <script>
 $( document ).ready( function() {
-    var errorMessage = "Please match the requested format.";
+    var errorMessage = "Please do not input chinese.";
 
     $( this ).find( "textarea" ).on( "input change propertychange", function() {
 

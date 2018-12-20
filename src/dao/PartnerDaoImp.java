@@ -67,8 +67,8 @@ class PartnerDaoImp extends Common implements PartnerDao {
         int status = 0;
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("delete from Partner where P_Title=?");) {
-            ps.setString(1, p.getpTitle());
+                PreparedStatement ps = con.prepareStatement("delete from Partner where P_id=?");) {
+            ps.setString(1, p.getpId());
             status = ps.executeUpdate();
 
         } catch (Exception e) {
@@ -103,12 +103,12 @@ class PartnerDaoImp extends Common implements PartnerDao {
     }
 
     @Override
-    public Partner getRecordById(String title) {
+    public Partner getRecordById(String id) {
         Partner p = null;
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("select * from Partner where P_Title=?");) {
-            ps.setString(1, title);
+                PreparedStatement ps = con.prepareStatement("select * from Partner where P_id=?");) {
+            ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {

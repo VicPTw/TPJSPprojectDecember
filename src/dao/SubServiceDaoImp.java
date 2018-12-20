@@ -108,12 +108,12 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
 	 * @see dao.IDao#getRecordById(java.lang.String)
      */
     @Override
-    public SubService getRecordById(String title) {
+    public SubService getRecordById(String id) {
         SubService ss = null;
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("select * from SubService where Sb_Title=?");) {
-            ps.setString(1, title);
+                PreparedStatement ps = con.prepareStatement("select * from SubService where Sb_id=?");) {
+            ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 ss = new SubService();

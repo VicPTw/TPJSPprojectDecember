@@ -17,7 +17,7 @@
         <p>請選擇欲刪除項目</p>
         <p>合作夥伴 <select name="pTitlec">
                 <c:forEach items="${plist}" var="p">
-                    <option>${p.getpTitle()}</option>
+                    <option value="${p.getpId()}">${p.getpTitle()}</option>
                 </c:forEach>
             </select></p>
         <p>密碼：<input type="password" name="pwd" size="20"  onkeydown='runScript(event)'></p>  

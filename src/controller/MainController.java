@@ -7,7 +7,6 @@ package controller;
 
 import bean.MainPage;
 import bean.Partner;
-import bean.Service;
 import bean.SubService;
 import dao.DaoManager;
 import java.io.File;
@@ -34,8 +33,12 @@ import javax.servlet.http.Part;
 @MultipartConfig
 public class MainController extends HttpServlet {
 
-    private String getFileName(final Part part) {
-        final String partHeader = part.getHeader("content-disposition");
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String getFileName(final Part part) {
         for (String content : part.getHeader("content-disposition").split(";")) {
             if (content.trim().startsWith("filename")) {
                 return content.substring(
@@ -58,7 +61,6 @@ public class MainController extends HttpServlet {
 
         //DoubleSelect
         if ("Services".equals(DoubleSelect)) {
-            Service s = DaoManager.getInstance().getServiceDaoImp().getRecordById(sTitlec);
             if (sTitlec != null) {
                 List<SubService> sbList = DaoManager.getInstance().getSubServiceDaoImp().getAllRecordsByRef(sTitlec);
                 request.setAttribute("Updateselect", Updateselect);
