@@ -6,6 +6,7 @@ package controller;
  * and open the template in the editor.
  */
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,11 +24,6 @@ import pass.Check;
 public class Validation extends HttpServlet {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	/**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -57,11 +53,9 @@ public class Validation extends HttpServlet {
 
                 session.setAttribute("pwd", pwd);
                 rd = request.getRequestDispatcher("CMS/CMSindex.jsp");
-                rd.forward(request, response);
             } else {
                 request.setAttribute("pwdError", "密碼錯誤" + "\n" + "您目前輸入的是:" + request.getParameter("pwd"));
                 rd = request.getRequestDispatcher("login/login.jsp");
-                rd.forward(request, response);
             }
         } else if ("logout".equals(logout)) {
 

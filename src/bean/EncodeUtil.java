@@ -15,10 +15,10 @@ class EncodeUtil {
 //		String[] newChar = {"&amp;", "&lt;", "&gt;"/*, "&nbsp;"*/, "&quot;",
 //				"&apos;", "&cent;", "&pound;", "&yen;", "&euro;", "&copy;", "&reg;", "&lsquor;",
 //				"&apos;", "&ldquo;", "&rdquo;", "<br>"};
-		String[] oldChar = {"& ", "<script>"/*, " "*/, "\"", "\'",
+		String[] oldChar = {"& ", "<script>", "</script>"/*, " "*/, "\"", "\'",
 							"¢", "£", "¥", "€", "©", "®", "‚",
 							"’", "“", "”", "\n"};
-		String[] newChar = {"&amp;", "invalid string"/*, "&nbsp;"*/, "&quot;",
+		String[] newChar = {"&amp;", "invalid string", "invalid string"/*, "&nbsp;"*/, "&quot;",
 							"&apos;", "&cent;", "&pound;", "&yen;", "&euro;", "&copy;", "&reg;", "&lsquor;",
 							"&apos;", "&ldquo;", "&rdquo;", "<br>"};
 		for (int i = 0; i < oldChar.length; i++) {
