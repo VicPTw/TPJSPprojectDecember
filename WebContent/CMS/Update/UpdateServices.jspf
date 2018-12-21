@@ -8,83 +8,87 @@
 
 
 
-<div class="Servicescontent">
-    <h2>Services</h2>
-<h4>圖片僅可上傳png及jpg檔，圖片檔案名需為英文</h4>
-
-    <%
-    List<Service> sList = DaoManager.getInstance().getServiceDaoImp().getAllRecords();
-    request.setAttribute("slist", sList);  %>
-
-
-<form action="${pageContext.request.contextPath}/DoubleSelectController" method="post" >
- <p>請選擇欲修改項目並按下確認</p> 
-     <select name="sTitlec">
-                <c:forEach items="${slist}" var="s">
-                    <option value="${s.getsId()}">${s.getsTitle()}</option>      
-                </c:forEach>     
-                    
- </select>
- <input type="submit" value="確認"/>
-</form>
-<form action="${pageContext.request.contextPath}/MainController" method="post" enctype="multipart/form-data" >
-
-<p>當你選擇項目後，下列選單會列出屬於該項目的物件</p>
-
-<select name="sbTitlec">
-<c:forEach items="${sbList}" var="sb">
-<option>${sb.getSbTitle()}</option>
-</c:forEach>
-    
-</select>   
-<%-- --------------------------------------------------------------------%>
-
-<p>標題更改: <input type="text" size="48" name="Servicesedittitle" pattern="[^\u4e00-\u9fa5]{0,50}"></p>
-<p>內文更改:<textarea cols="50" rows="5" name="Serviceseditcontent" pattern="[^\u4e00-\u9fa5]{0,10000}"></textarea></p>
-<p>圖片上傳更換：<input type="file" name="file"></p>
-<h2>
- <input type="submit" value="確認修改">
-            
- <input type="hidden" name="operation" value="UpdateServices">
-</h2>            
-</form> 
-
-</div>
-
 <script>
-$( document ).ready( function() {
-    var errorMessage = "Please match the requested format.";
+    $(document).ready(function () {
+        var errorMessage = "Please do not input chinese.";
 
-    $( this ).find( "textarea" ).on( "input change propertychange", function() {
+        $(this).find("textarea").on("input change propertychange", function () {
 
-        var pattern = $( this ).attr( "pattern" );
+            var pattern = $(this).attr("pattern");
 
-        if(typeof pattern !== typeof undefined && pattern !== false)
-        {
-            var patternRegex = new RegExp( "^" + pattern.replace(/^\^|\$$/g, '') + "$", "g" );
-
-            hasError = !$( this ).val().match( patternRegex );
-
-            if ( typeof this.setCustomValidity === "function") 
+            if (typeof pattern !== typeof undefined && pattern !== false)
             {
-                this.setCustomValidity( hasError ? errorMessage : "" );
-            } 
-            else 
-            {
-                $( this ).toggleClass( "error", !!hasError );
-                $( this ).toggleClass( "ok", !hasError );
+                var patternRegex = new RegExp("^" + pattern.replace(/^\^|\$$/g, '') + "$", "g");
 
-                if ( hasError ) 
+                hasError = !$(this).val().match(patternRegex);
+
+                if (typeof this.setCustomValidity === "function")
                 {
-                    $( this ).attr( "title", errorMessage );
-                } 
-                else
+                    this.setCustomValidity(hasError ? errorMessage : "");
+                } else
                 {
-                    $( this ).removeAttr( "title" );
+                    $(this).toggleClass("error", !!hasError);
+                    $(this).toggleClass("ok", !hasError);
+
+                    if (hasError)
+                    {
+                        $(this).attr("title", errorMessage);
+                    } else
+                    {
+                        $(this).removeAttr("title");
+                    }
                 }
             }
-        }
 
+        });
     });
-});
 </script>
+<div class="Servicescontent">
+    <h2>Services</h2>
+    <h4>圖片僅可上傳png及jpg檔，圖片檔案名需為英文</h4>
+
+    <%
+        List<Service> sList = DaoManager.getInstance().getServiceDaoImp().getAllRecords();
+        request.setAttribute("slist", sList);%>
+
+
+    <form action="${pageContext.request.contextPath}/MainController" method="post" >
+        <p>請選擇欲修改項目並按下確認</p> 
+        <select name="sTitlec" required>
+            <c:forEach items="${slist}" var="s">
+                <option value="${s.getsId()}">${s.getsTitle()}</option>      
+            </c:forEach>     
+
+        </select>
+        <input type="hidden" name="DoubleSelect" value="Services">
+        <input type="hidden" name="Updateselect" value="0">
+        <input type="submit" value="確認"/>
+    </form>
+
+    <c:choose>
+        <c:when test="${ Updateselect != null }">
+
+            <form action="${pageContext.request.contextPath}/MainController" method="post" enctype="multipart/form-data" >
+
+                <p>當你選擇項目後，下列選單會列出屬於該項目的物件</p>
+
+                <select name="sbTitlec">
+                    <c:forEach items="${sbList}" var="sb">
+                        <option value="${sb.getSbId()}">${sb.getSbTitle()}</option>
+                    </c:forEach>
+
+                </select>   
+                <%-- --------------------------------------------------------------------%>
+
+                <p>標題更改: <input type="text" size="48" name="Servicesedittitle" pattern="[^\u4e00-\u9fa5]{0,50}"></p>
+                <p>內文更改:<textarea cols="50" rows="5" name="Serviceseditcontent" pattern="[^\u4e00-\u9fa5]{0,10000}"></textarea></p>
+                <p>圖片上傳更換：<input type="file" name="file"></p>
+                <h2>
+                    <input type="submit" value="確認修改">
+                    <input type="hidden" name="operation" value="UpdateServices">
+                </h2>            
+            </form> 
+        </c:when>
+    </c:choose>
+
+</div>

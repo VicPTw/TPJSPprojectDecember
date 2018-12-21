@@ -12,6 +12,7 @@
 <input type="submit" value="確認修改">
 <input type="hidden" name="operation" value="UpdateMainPage">
 <input type="hidden" name="title" value="banner">
+<input type="hidden" name="mcontent" value="">
 </h2>
 </form>
 </div>

@@ -130,6 +130,7 @@ body{
 .indexcontent{
     float:left;
     padding-top:15px;
+    position: relative;
 }
 
 .indexcontent h3{line-height: 50px;
@@ -152,6 +153,9 @@ body{
             color:black;
             float:right;
             background-color: burlywood;
+            position: absolute;
+            bottom: -50px;
+            right: 0px;
 }
 .logout input[type="submit"]:visited{color:#000000;
 

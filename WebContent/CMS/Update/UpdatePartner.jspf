@@ -18,7 +18,7 @@
 %>
              <select name="Pname">
                  <c:forEach var="p" items="${slist}">
-                     <option>${p.getpTitle()}</option>
+                     <option value="${p.getpId()}">${p.getpTitle()}</option>
                  </c:forEach>                                  
              </select>
 
@@ -37,7 +37,7 @@
              
 <script>
 $( document ).ready( function() {
-    var errorMessage = "Please match the requested format.";
+    var errorMessage = "Please do not input chinese.";
 
     $( this ).find( "textarea" ).on( "input change propertychange", function() {
 

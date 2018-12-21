@@ -25,7 +25,7 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
         try (
                 Connection con = getConnection();
                 PreparedStatement ps = con.prepareStatement(
-                        "insert into SubService values(DEFAULT,?,?,?,?)");) {
+                        "insert into SubService values(DEFAULT,?,?,?,?,DEFAULT)");) {
             //ps.setObject(1, ss.getSbId());
             ps.setString(1, ss.getSbImg());
             ps.setString(2, ss.getSbTitle());
@@ -68,8 +68,8 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
         int status = 0;
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("delete from SubService where Sb_Title=?");) {
-            ps.setString(1, ss.getSbTitle());
+                PreparedStatement ps = con.prepareStatement("delete from SubService where Sb_id=?");) {
+            ps.setString(1, ss.getSbId());
             status = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
@@ -87,7 +87,7 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
 
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("select * from SubService");
+                PreparedStatement ps = con.prepareStatement("select * from SubService Order By Sb_Date");
                 ResultSet rs = ps.executeQuery();) {
             while (rs.next()) {
                 SubService ss = new SubService();
@@ -108,12 +108,12 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
 	 * @see dao.IDao#getRecordById(java.lang.String)
      */
     @Override
-    public SubService getRecordById(String title) {
+    public SubService getRecordById(String id) {
         SubService ss = null;
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("select * from SubService where Sb_Title=?");) {
-            ps.setString(1, title);
+                PreparedStatement ps = con.prepareStatement("select * from SubService where Sb_id=?");) {
+            ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 ss = new SubService();
@@ -134,7 +134,7 @@ class SubServiceDaoImp extends Common implements SubServiceDao {
         List<SubService> list = new ArrayList<SubService>();
         try (
                 Connection con = getConnection();
-                PreparedStatement ps = con.prepareStatement("select * from SubService where S_id=?");) {
+                PreparedStatement ps = con.prepareStatement("select * from SubService where S_id=? Order By Sb_Date");) {
             ps.setString(1, sId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

@@ -10,8 +10,8 @@
 <html lang="en">
 <head>
 <title>TAIWAN IMMIGRATION &amp; RELOCATION CO.</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
+<meta name="keywords" content="Taiwan, Immigration, Relocation, Car rental, VISA">
+<meta name="description" content="Welcome to Taiwan.">
 <meta name="viewport" content="width=device-width initial-scale=1">
 <link rel="stylesheet" href="style.css" />
 <script src="js/jquery-1.10.2.js"></script>

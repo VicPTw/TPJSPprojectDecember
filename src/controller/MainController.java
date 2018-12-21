@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-
 
 /**
  *
@@ -39,7 +38,7 @@ public class MainController extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 
-		private String getFileName(final Part part) {
+	private String getFileName(final Part part) {
         for (String content : part.getHeader("content-disposition").split(";")) {
             if (content.trim().startsWith("filename")) {
                 return content.substring(
@@ -56,13 +55,24 @@ public class MainController extends HttpServlet {
         RequestDispatcher rd = null;
         final String aboutTitle = request.getParameter("aboutTitle");
         final String operation = request.getParameter("operation");
-        if (!"about".equals(aboutTitle)) {
+        final String DoubleSelect = request.getParameter("DoubleSelect");
+        final String sTitlec = request.getParameter("sTitlec");
+        final String Updateselect = request.getParameter("Updateselect");
+
+        //DoubleSelect
+        if ("Services".equals(DoubleSelect)) {
+            if (sTitlec != null) {
+                List<SubService> sbList = DaoManager.getInstance().getSubServiceDaoImp().getAllRecordsByRef(sTitlec);
+                request.setAttribute("Updateselect", Updateselect);
+                request.setAttribute("sbList", sbList);
+                rd = request.getRequestDispatcher("/CMS/Update/UpdateServices.jsp");
+            }   
+        } else if (!"about".equals(aboutTitle)) {
             final Part filePart = request.getPart("file");
             final String fileName = getFileName(filePart);
             OutputStream os = null;
             InputStream is = null;
-            final PrintWriter out = response.getWriter();
-            if (!fileName.equals("")) {
+            if (!"".equals(fileName)) {
                 try {
                     String path = a + fileName;
                     File file = new File(path);
@@ -73,46 +83,17 @@ public class MainController extends HttpServlet {
                     final byte[] bytes = new byte[1024];
                     while ((read = is.read(bytes)) != -1) {
                         os.write(bytes, 0, read);
+                        
                     }
-
-                    switch (operation) {
-                        case "UpdateMainPage":
-                            request.setAttribute("UpdateMainPageOK", "主頁面修改成功。");
-                            break;
-                        case "SavePartner":
-                            request.setAttribute("SavePartnerOK", "新增合作夥伴成功。");
-                            break;
-                        case "UpdatePartner":
-                            request.setAttribute("UpdatePartnerOK", "合作夥伴修改成功。");
-                            break;
-                        case "SaveServices":
-                            request.setAttribute("SaveSubServiceOK", "新增服務成功。");
-                            break;
-                        case "UpdateServices":
-                            request.setAttribute("UpdateServicesOK", "修改服務成功。");
-                            break;
-                    }
-
-                    rd = request.getRequestDispatcher("CMS/Successful/Successful.jsp");
-                    rd.forward(request, response);
 
                 } catch (FileNotFoundException e) {
-//                	
-//                	request.setAttribute("ERROR", "上傳出現問題" + "<br>" + fileName
-//                			+ "<br>ERROR" + e.getMessage());
-                    out.println("上傳出現問題" + "<br>" + fileName);
-                    out.println("<br>ERROR" + e.getMessage());
-                    log("檔案出現問題:" + e);
-
+                      log("檔案出現問題:" + e);
                 } finally {
                     if (os != null) {
                         os.close();
                     }
                     if (is != null) {
                         is.close();
-                    }
-                    if (out != null) {
-                        out.close();
                     }
 
                 }
@@ -124,17 +105,20 @@ public class MainController extends HttpServlet {
                     final String title = request.getParameter("title");
                     MainPage Title = DaoManager.getInstance().getMainPageDaoImp().getRecordById(title);
                     final String content = request.getParameter("mcontent");
-                    if (!content.equals("")) {
-                        Title.setMainContent(content);
+                    if ("".equals(content) && "".equals(fileName)) {
+                        request.setAttribute("None", "並無進行任何修改。");
+                    } else {
+                        if (!"".equals(content)) {
+                            Title.setMainContent(content);
+                        }
+                        if (!"".equals(fileName)) {
+                            Title.setMainImg("img/" + fileName);
+                        }
+                        request.setAttribute("UpdateMainPageOK", "主頁面修改成功。");
                     }
-                    if (!fileName.equals("")) {
-                        Title.setMainImg("img/" + fileName);
-                    }
-
                     DaoManager.getInstance().getMainPageDaoImp().update(Title);
-                    request.setAttribute("UpdateMainPageOK", "主頁面修改成功。");
                     rd = request.getRequestDispatcher("CMS/Successful/Successful.jsp");
-                    rd.forward(request, response);
+                    
                     break;
 
                 case "SavePartner":
@@ -143,26 +127,24 @@ public class MainController extends HttpServlet {
                     final String pTitle = request.getParameter("Partnertitle");
                     final String pcontent = request.getParameter("Partnercontent");
                     final String pLink = request.getParameter("Partnerlink");
-                    if (!pTitle.equals("")) {
+                    if (!"".equals(pTitle)) {
                         p.setpTitle(pTitle);
                     }
-                    if (!pcontent.equals("")) {
+                    if (!"".equals(pcontent)) {
                         p.setpContent(pcontent);
                     }
-                    if (!fileName.equals("")) {
+                    if (!"".equals(fileName)) {
                         p.setpImg("img/" + fileName);
                     }
-                    if (!pLink.equals("")) {
+                    if (!"".equals(pLink)) {
                         p.setpLink(pLink);
                     }
 
                     DaoManager.getInstance().getPartnerDaoImp().save(p);
                     request.setAttribute("SavePartnerOK", "新增合作夥伴成功。");
                     rd = request.getRequestDispatcher("CMS/Successful/Successful.jsp");
-                    rd.forward(request, response);
-
                     break;
-
+                    
                 case "UpdatePartner":
                     final String Pedittitle = request.getParameter("Pname");
                     Partner PTitle = DaoManager.getInstance().getPartnerDaoImp().getRecordById(Pedittitle);
@@ -170,24 +152,27 @@ public class MainController extends HttpServlet {
                     final String Partneredittitle = request.getParameter("Partneredittitle");
                     final String Partnerditcontent = request.getParameter("Partnerditcontent");
                     final String Partnereditlink = request.getParameter("Partnereditlink");
-                    if (!Partneredittitle.equals("")) {
-                        PTitle.setpTitle(Partneredittitle);
-                    }
-                    if (!Partnerditcontent.equals("")) {
-                        PTitle.setpContent(Partnerditcontent);
-                    }
+                    if ("".equals(Partneredittitle) && "".equals(Partnerditcontent) && "".equals(fileName) && "".equals(Partnereditlink)) {
+                        request.setAttribute("None", "並無進行任何修改。");
+                    } else {
+                        if (!"".equals(Partneredittitle)) {
+                            PTitle.setpTitle(Partneredittitle);
+                        }
+                        if (!"".equals(Partnerditcontent)) {
+                            PTitle.setpContent(Partnerditcontent);
+                        }
 
-                    if (!fileName.equals("")) {
-                        PTitle.setpImg("img/" + fileName);
-                    }
-                    if (!Partnereditlink.equals("")) {
-                        PTitle.setpLink(Partnereditlink);
+                        if (!"".equals(fileName)) {
+                            PTitle.setpImg("img/" + fileName);
+                        }
+                        if (!"".equals(Partnereditlink)) {
+                            PTitle.setpLink(Partnereditlink);
+                        }
+                        request.setAttribute("UpdatePartnerOK", "合作夥伴修改成功。");
                     }
 
                     DaoManager.getInstance().getPartnerDaoImp().update(PTitle);
-                    request.setAttribute("UpdatePartnerOK", "合作夥伴修改成功。");
                     rd = request.getRequestDispatcher("CMS/Successful/Successful.jsp");
-                    rd.forward(request, response);
                     break;
 
                 case "SaveServices":
@@ -196,51 +181,55 @@ public class MainController extends HttpServlet {
                     final String subid = request.getParameter("sid");
                     final String svTitle = request.getParameter("Servicetitle");
                     final String svcontent = request.getParameter("Servicecontent");
-                    if (!subid.equals("")) {
+                    if (!"".equals(subid)) {
                         subService.setsId(subid);
                     }
-                    if (!svTitle.equals("")) {
+                    if (!"".equals(svTitle)) {
                         subService.setSbTitle(svTitle);
                     }
-                    if (!svcontent.equals("")) {
+                    if (!"".equals(svcontent)) {
                         subService.setSbContent(svcontent);
                     }
-                    if (!fileName.equals("")) {
+                    if (!"".equals(fileName)) {
                         subService.setSbImg("../img/" + fileName);
                     }
                     DaoManager.getInstance().getSubServiceDaoImp().save(subService);
                     request.setAttribute("SaveSubServiceOK", "新增服務成功。");
                     rd = request.getRequestDispatcher("CMS/Successful/Successful.jsp");
-                    rd.forward(request, response);
 
                     break;
 
                 case "UpdateServices":
-
                     final String sbTitlec = request.getParameter("sbTitlec");
                     SubService sb = DaoManager.getInstance().getSubServiceDaoImp().getRecordById(sbTitlec);
-                    if (sbTitlec != null) {
+                    final String Servicesedittitle = request.getParameter("Servicesedittitle");
+                    final String Serviceseditcontent = request.getParameter("Serviceseditcontent");
+                    if ("".equals(Servicesedittitle) && "".equals(Serviceseditcontent) && "".equals(Serviceseditcontent) && "".equals(fileName)) {
+                        request.setAttribute("None", "並無進行任何修改。");
+                    } else {
 
-                        final String Servicesedittitle = request.getParameter("Servicesedittitle");
-                        final String Serviceseditcontent = request.getParameter("Serviceseditcontent");
-
-                        if (!Servicesedittitle.equals("")) {
+                        if (!"".equals(Servicesedittitle)) {
                             sb.setSbTitle(Servicesedittitle);
                         }
-                        if (!Serviceseditcontent.equals("")) {
+                        if (!"".equals(Serviceseditcontent)) {
                             sb.setSbContent(Serviceseditcontent);
                         }
-                        if (!fileName.equals("")) {
+                        if (!"".equals(fileName)) {
                             sb.setSbImg("../img/" + fileName);
                         }
 
-                        DaoManager.getInstance().getSubServiceDaoImp().update(sb);
                         request.setAttribute("UpdateServicesOK", "修改服務成功。");
-                        rd = request.getRequestDispatcher("CMS/Successful/Successful.jsp");
-                        rd.forward(request, response);
-                        break;
                     }
+                    DaoManager.getInstance().getSubServiceDaoImp().update(sb);
+                    rd = request.getRequestDispatcher("CMS/Successful/Successful.jsp");
+                    break;
+                    
+                    default:
+                        request.setAttribute("ERROR", "發生無法預期的錯誤");
+                        rd = request.getRequestDispatcher("CMS/CMSindex.jsp");
 
+                    
+                   
             }
 
         } else {
@@ -248,15 +237,18 @@ public class MainController extends HttpServlet {
 
             MainPage Title = DaoManager.getInstance().getMainPageDaoImp().getRecordById(aboutTitle);
             final String content = request.getParameter("mcontent");
-            if (!content.equals("")) {
+            if (!"".equals(content)) {
                 Title.setMainContent(content);
+                request.setAttribute("UpdateMainPageOK", "主頁面修改成功");
+            } else {
+                request.setAttribute("None", "並未進行修改。");
             }
             DaoManager.getInstance().getMainPageDaoImp().update(Title);
-            request.setAttribute("UpdateMainPageOK", "主頁面修改成功");
             rd = request.getRequestDispatcher("CMS/Successful/Successful.jsp");
-            rd.forward(request, response);
 
-        }
+       }
+
+         rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

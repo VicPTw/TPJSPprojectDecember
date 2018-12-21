@@ -57,11 +57,9 @@ public class Validation extends HttpServlet {
 
                 session.setAttribute("pwd", pwd);
                 rd = request.getRequestDispatcher("CMS/CMSindex.jsp");
-                rd.forward(request, response);
             } else {
                 request.setAttribute("pwdError", "密碼錯誤" + "\n" + "您目前輸入的是:" + request.getParameter("pwd"));
                 rd = request.getRequestDispatcher("login/login.jsp");
-                rd.forward(request, response);
             }
         } else if ("logout".equals(logout)) {
 
