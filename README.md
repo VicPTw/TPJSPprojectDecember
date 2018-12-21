@@ -1,7 +1,7 @@
 # TPJSPprojectDecember
-2018/12/17 backup
 
-Version1.0 beta
+Version1.0-beta.2
+SEO is needed
 
 *You must verify your database access first.
 
