@@ -15,3 +15,5 @@ Tomcat server.xml filter and mapping setting
 
 *For Tomcat encode: 
 Tomcat context.xml 
+
+Copyright (C) 2018 Taipei city vocational development institute.
