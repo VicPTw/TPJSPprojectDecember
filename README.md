@@ -1,14 +1,19 @@
 # TPJSPprojectDecember
-2018/12/17 backup
 
-Version1.0 beta
+last update date 2018/12/22
+
+Version1.0-beta.2
+
+SEO is needed
 
 *You must verify your database access first.
 
 (user, password, DBdriver)
 
-*For information security and setCharacterEncodingFilter
+*For information security and setCharacterEncodingFilter: 
 Tomcat server.xml filter and mapping setting
 
-*For Tomcat encode
+*For Tomcat encode: 
 Tomcat context.xml 
+
+Copyright (C) 2018 Taipei city vocational development institute.
