@@ -100,7 +100,7 @@
 			%>
 			<div class="cbrief" id="Taiwan">
 				<div class="pic">
-					<img src="<%=cBrief.getMainImg()%>" alt="" />
+					<img src="<%=cBrief.getMainImg()%>" alt="country brief" />
 				</div>
 				<div class="text">
 					<h4>COUNTRY BRIEF</h4>
@@ -119,7 +119,7 @@
 				<c:forEach items="${plist}" var="p">
 					<div class="partner">
 						<div class="pic">
-							<img src="${p.getpImg()}" alt="" />
+							<img src="${p.getpImg()}" alt="partner" />
 						</div>
 						<div class="text">
 							<h4>${p.getpTitle()}</h4>

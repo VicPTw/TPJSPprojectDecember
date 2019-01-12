@@ -14,79 +14,50 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
---><web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-
-
-    <display-name>TPJSPprojectDecember</display-name>
-    <context-param>
-        <param-name>imgpath</param-name>
-        <param-value>C:\Program Files\Apache Software Foundation\Tomcat 8.0\wtpwebapps\TPJSPprojectDecember\img\</param-value>
-    </context-param>
-
-    <filter>
-        <filter-name>httpHeaderSecurity</filter-name>
-        <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
-        <async-supported>true</async-supported>
-    </filter>
-
-
-  <!-- A filter that sets character encoding that is used to decode -->
-  <!-- parameters in a POST request -->
-
-    <filter>
-        <filter-name>setCharacterEncodingFilter</filter-name>
-        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
-        <async-supported>true</async-supported>  
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-    </filter>
-
-
-  <!-- A filter that triggers request parameters parsing and rejects the    -->
-  <!-- request if some parameters were skipped because of parsing errors or -->
-  <!-- request size limitations.                                            -->
-
-    <filter>
-        <filter-name>failedRequestFilter</filter-name>
-        <filter-class>
+-->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>TPJSPprojectDeploy</display-name>
+  <context-param>
+    <param-name>imgpath</param-name>
+    <param-value>C:\Program Files\Apache Software Foundation\Tomcat 8.0\wtpwebapps\TPJSPprojectDecember\img\</param-value>
+  </context-param>
+  <filter>
+    <filter-name>httpHeaderSecurity</filter-name>
+    <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+  <filter>
+    <filter-name>setCharacterEncodingFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+    <async-supported>true</async-supported>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter>
+    <filter-name>failedRequestFilter</filter-name>
+    <filter-class>
           org.apache.catalina.filters.FailedRequestFilter
         </filter-class>
-        <async-supported>true</async-supported>
-    </filter>
-
-  <!-- ==================== Built In Filter Mappings ====================== -->
-
-  <!-- The mapping for the HTTP header security Filter -->
-
-    <filter-mapping>
-        <filter-name>httpHeaderSecurity</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-    </filter-mapping>
-
-
-  <!-- The mapping for the Set Character Encoding Filter -->
-
-    <filter-mapping>
-        <filter-name>setCharacterEncodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-
-  <!-- The mapping for the Failed Request Filter -->
-
-    <filter-mapping>
-        <filter-name>failedRequestFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.htm</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
-
+    <async-supported>true</async-supported>
+  </filter>
+  <filter-mapping>
+    <filter-name>httpHeaderSecurity</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>setCharacterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>failedRequestFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>
