@@ -10,8 +10,8 @@
 <html lang="en">
 <head>
 <title>TAIWAN IMMIGRATION &amp; RELOCATION CO.</title>
-<meta name="keywords" content="Taiwan, Immigration, Relocation, Car rental, VISA">
-<meta name="description" content="Welcome to Taiwan.">
+<meta name="keywords" content="taiwan immigration,taiwan relocation,taiwan work permit,taiwan alien resident certificate,taiwan ARC,taiwan home finding,Taiwan Immigration & Relocation,temporary accommodation,taiwan school search,taiwan short-term rental">
+<meta name="description" content="Taiwan Immigration & Relocation Company (TIRC) provides services to help employee from International Company to adapting the living and culture in Taiwan. Our services including apply Work Permit、Resident Visa、ARC、Home Finding、Short-term Rental、School Search…">
 <meta name="viewport" content="width=device-width initial-scale=1">
 <link rel="stylesheet" href="style.css" />
 <script src="js/jquery-1.10.2.js"></script>
@@ -100,7 +100,7 @@
 			%>
 			<div class="cbrief" id="Taiwan">
 				<div class="pic">
-					<img src="<%=cBrief.getMainImg()%>" alt="" />
+					<img src="<%=cBrief.getMainImg()%>" alt="country brief" />
 				</div>
 				<div class="text">
 					<h4>COUNTRY BRIEF</h4>
@@ -119,7 +119,7 @@
 				<c:forEach items="${plist}" var="p">
 					<div class="partner">
 						<div class="pic">
-							<img src="${p.getpImg()}" alt="" />
+							<img src="${p.getpImg()}" alt="partner" />
 						</div>
 						<div class="text">
 							<h4>${p.getpTitle()}</h4>
@@ -180,8 +180,8 @@
 					<!-- End Inner -->
 				</div>
 				<div class="pic">
-                                    <p>Jensen <a href="mailto:ensen@twimmirelocation.com">jensen@twimmirelocation.com</a><br><br>
-                                    Kyle <a href="mailto:kyle.twimmirelocation@gmail.com">kyle.twimmirelocation@gmail.com</a></p>
+                                    <p>John <a href="mailto:John@John.com">John@John.com</a><br><br>
+                                    Jack <a href="mailto:Jack@Jack.com">Jack@Jack.com</a></p>
 					<img src="<%=contact.getMainImg()%>" alt="" />
 				</div>
 				</div>

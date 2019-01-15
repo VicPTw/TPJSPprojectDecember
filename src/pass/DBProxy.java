@@ -13,23 +13,20 @@ package pass;
 import java.sql.*;
 import java.util.*;
 
-public class DBProxy
+import dao.Common;
+
+public class DBProxy extends Common
 {
 
-	private	String driverName ="com.microsoft.sqlserver.jdbc.SQLServerDriver";   //加載JDBC驅動
-	private	String dbURL = "jdbc:sqlserver://localhost:1433; DatabaseName=TPJSP";   //連接服務器和資料庫test
-	private String userName = "sa";   //預設用戶名
-	private String userPwd = "tvdi";   //密碼
-	private String sqlCommand = ""; //SQL語法
 
+	private String sqlCommand = ""; //SQL語法
 	public boolean insert(String tableName, String columnName, String data)
 	{
 		    Connection dbConn ;
 		    Statement stmt = null;
 	        try
 	        {
-					Class.forName(driverName);
-					dbConn = DriverManager.getConnection(dbURL,userName,userPwd);
+	        		dbConn = getConnection();
 		            stmt = dbConn.createStatement();
 
 		            sqlCommand = "INSERT INTO ";
@@ -71,8 +68,7 @@ public class DBProxy
 
             try
 		   {
-		   		Class.forName(driverName);
-				dbConn = DriverManager.getConnection(dbURL,userName,userPwd);
+            	dbConn = getConnection();
 			    stmt = dbConn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			    sqlCommand="Select "+selection+" FROM "+tableName;
 			    if(condition!=null)
@@ -111,8 +107,7 @@ public class DBProxy
 		   Statement stmt = null;
 	      try
 	      {
-				Class.forName(driverName);
-				dbConn = DriverManager.getConnection(dbURL,userName,userPwd);
+	    	  dbConn = getConnection();
             	stmt = dbConn.createStatement();
             	sqlCommand="UPDATE "+tableName+" SET "+options+" WHERE "+condition;
             	stmt.execute(sqlCommand);
