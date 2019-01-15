@@ -25,9 +25,9 @@
             <div class="mail">
             <%
                 request.setCharacterEncoding("UTF-8");
-                String recipients = "mr.shi789789@gmail.com";
-                final String userName = "ms.shi789789@gmail.com";
-                final String password = "so123456os";
+                String recipients = "";
+                final String userName = "";
+                final String password = "";
                 String message = request.getParameter("message");
                 String mail = request.getParameter("mail");
                 String name = request.getParameter("name");
@@ -35,7 +35,7 @@
                 Properties props = new Properties();
 
                 props.put("mail.smtp.host", "smtp.gmail.com");
-                props.put("mail.smtp.from", "ms.shi789789@gmail.com");
+                props.put("mail.smtp.from", "");
                 props.put("mail.smtp.auth", "true");
                 props.put("mail.smtp.sendpartial", true);
                 props.put("mail.smtp.starttls.enable", "true");

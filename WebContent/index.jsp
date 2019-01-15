@@ -180,8 +180,8 @@
 					<!-- End Inner -->
 				</div>
 				<div class="pic">
-                                    <p>Jensen <a href="mailto:ensen@twimmirelocation.com">jensen@twimmirelocation.com</a><br><br>
-                                    Kyle <a href="mailto:kyle.twimmirelocation@gmail.com">kyle.twimmirelocation@gmail.com</a></p>
+                                    <p>John <a href="mailto:John@John.com">John@John.com</a><br><br>
+                                    Jack <a href="mailto:Jack@Jack.com">Jack@Jack.com</a></p>
 					<img src="<%=contact.getMainImg()%>" alt="" />
 				</div>
 				</div>

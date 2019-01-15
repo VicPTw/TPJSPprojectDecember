@@ -16,10 +16,10 @@
   limitations under the License.
 -->
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <display-name>TPJSPprojectDeploy</display-name>
+  <display-name>ROOT</display-name>
   <context-param>
     <param-name>imgpath</param-name>
-    <param-value>C:\Program Files\Apache Software Foundation\Tomcat 8.0\wtpwebapps\TPJSPprojectDecember\img\</param-value>
+    <param-value>your img path</param-value>
   </context-param>
   <filter>
     <filter-name>httpHeaderSecurity</filter-name>
@@ -60,16 +60,16 @@
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-<error-page>
+  <error-page>
     <error-code>404</error-code>
-    <location>/Error.html</location>
-</error-page>
+    <location>/Error.jsp</location>
+  </error-page>
   <error-page>
     <error-code>500</error-code>
-    <location>/Error.html</location>
-</error-page>
-<error-page>
+    <location>/Error.jsp</location>
+  </error-page>
+  <error-page>
     <exception-type>java.lang.Exception</exception-type>
-    <location>/Error.html</location>
-</error-page>
+    <location>/Error.jsp</location>
+  </error-page>
 </web-app>
